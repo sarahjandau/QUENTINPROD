@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* template */
+body {
+    font-family: 'Fira Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    color: #fff;
+}
+
+.header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    z-index: 0; 
+}
+
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1; 
+}
+
+
+.menu {
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+    z-index: 2; 
+}
+
+.menu .logo {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
+
+.hero {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    max-width: 100%;
+    padding: 2em;
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    font-size: 2em;
+    position: relative;
+    margin-top: 7em; 
+    z-index: 1; 
+}
+
+/* menu burger */
+
+.menuToggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style pour mobileNav */
+.mobileNav {
+    display: none; 
+    flex-direction: column;
+    gap: 1em;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #9F3FE5; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 100; 
+}
+
+.closeMenu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+
+.mobileNav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-top: 7em;
+    padding-left: 3em;
+}
+
+.mobileNav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5em;
+    text-align: center; 
+}
+
+
+.dropdownMenu {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1em;
+    z-index: 2;
+}
+
+
+.dropdownMenu li {
+    margin: 0;
+}
+
+.dropdownMenu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.desktopNav {
+    display: none; 
+}
+
+
+.dropdown:hover .dropdownMenu {
+    display: block;
+}
+
+.mobileNav.active {
+    display: flex;
+}
+
+/* Page index  */
+
+
+
+
+.aPropos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100vw; 
+    height: auto;
+    margin: 0; 
+    padding-top: 3em;
+}
+
+.photoQuentin{
+    position: relative;
+    width: 100vw;
+    height: 600px;
+
+}
+.presentation{
+    position: relative;
+    width: 100vw;
+    height: 600px;
+    background: #9e3fe5;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+h2{
+    font-family: Fira Sans Condensed, sans serif;
+    font-weight: 800;
+    padding-top: 3em;
+    text-align: center;
+    line-height: 1.2;
+    
+}
+
+
+.aProposText {
+    display: block;
+    padding: 3em;
+    font-family: Fira Sans, sans serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.6px;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.aproposbtn{
+    width: 150px;
+    height: 60px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-size: 1,2em;
+    font-weight: 550;
+    font-family: Fira Sans, sans serif;
+
+}
+
+/* PRESTATIONS */
+
+.cardsContainer {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    align-items: center; 
+    padding: 20px;
+}
+
+/* Styles pour chaque carte */
+.card {
+    background-color: #13181C; 
+    color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1); 
+    padding: 20px;  
+    max-width: 320px; 
+    width: 100%; 
+    height: 500px; 
+    text-align: left; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+/* Styles pour le titre de chaque carte */
+.card h3 {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+.card h6{
+    padding-left: 2em;
+}
+
+/* Styles pour le prix */
+.prix {
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-left: 1em;
+}
+
+/* Styles pour la description */
+.description {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.9em;
+    padding: 1em;
+    text-align: left;
+}
+
+/* Liste de la description */
+.description ul {
+    list-style-type: disc; /* Puces pour la liste */
+    padding-left: 20px; /* Espacement gauche pour les puces */
+    margin: 0;
+}
+
+/* Styles pour le bouton */
+button.voirTout {
+    background-color: #9F3FE5; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none; /* Supprime les bordures du bouton */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement interne du bouton */
+    font-size: 1em; /* Taille de la police */
+    font-weight: bold; /* Poids de la police */
+    cursor: pointer; /* Curseur pointeur */
+    transition: background-color 0.3s, color 0.3s; /* Transition fluide */
+    align-self: center; /* Centre le bouton horizontalement */
+}
+
+/* Style pour le bouton au survol */
+button.voirTout:hover {
+    background-color: #FF7B30; /* Couleur de fond au survol */
+    color: white; /* Couleur du texte au survol */
+}
+   
+
+
+@media (min-width: 768px) {
+
+    
+    .hero{
+        font-size: 70px; 
+        width: 100%; 
+        margin-top: 3em;
+    }
+    
+        
+    nav ul {
+        gap: 2em;
+    }
+    
+    .desktopNav {
+        display: block;
+    }
+
+    .menuToggle {
+        display: none;
+    }
+
+
+    .dropdown:hover .dropdownMenu {
+        display: block; 
+    }
+
+    .dropdown {
+        position: relative; 
+    }
+    
+    .dropdownMenu {
+        display: none;
+        flex-direction: column;
+        gap: 0.5em;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1em;
+        list-style: none;
+        position: absolute; 
+        top: 100%; 
+        gap: 3em;
+        z-index: 2;
+    }
+
+    .styleMusique{
+        display: flex;
+
+    }
+
+    .photoQuentin{
+        border-radius: 300px;
+        right: 4em;
+        width: 414px;
+    }
+
+    .presentation{
+        position: relative;
+        width: 30%;
+        background: transparent;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .aPropos{
+        padding-top: 6em;
+        padding-bottom: 6em;
+        gap: 50px;
+    }
+
+    .aProposText {
+        padding: 3em;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    h2{
+        font-size: 45px;
+        line-height: 1.2;
+    }
+
+    .quentinProd{
+        text-align: left;
+    }
+
+
+    .buttonWrapper {
+        justify-content: left;
+    
+    }
+
+    .aproposbtn{
+        
+        border: 2px solid #9F3FE5;
+        background-color: #9F3FE5;
+        transition: all 0.3s;
+        cursor: pointer;
+        font-size: 1em;
+    
+    }
+
+    .aproposbtn:hover {
+        background: linear-gradient(90deg, #9F3FE5, #FF7B30);
+        color: white;
+        font-size: 1.1em;
+    }
+
+    .cardsContainer {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        padding-top: 4em;
+        }
+
+    .card {
+        max-width: 300px; 
+        height: auto; 
+        padding: 20px; 
+    }
+
+  
+    .card h3 {
+        padding: 0.5em 0  0.5em 1em; 
+    }
+
+    .card h6, .prix {
+        margin: 0.5em 0;
+    }
+
+    button.voirTout {
+        margin-top: 2em;
+    }
+
+
+    
+}
+
+
+
+
+
+
+  
+  
