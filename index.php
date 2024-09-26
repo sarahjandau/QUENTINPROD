@@ -19,21 +19,12 @@ ob_start();
 <body>
 
 
-<!-- <div class="styleMusique">
-    <div class="rectangle"></div>
-    <span class="styleText"
-        >Tout style de musique ... Pop • RnB • Dance • Electro • Classic • Hip-Hop • Afro • Année 80
-    </span>
-</div> -->
-
-
 <div class="aPropos">
     <img src="public/images/Quentin1.jpeg" alt="" class="photoQuentin">
     <div class="presentation">
         <h2 class="quentinProd">QUENTIN PROD A <br> VOTRE SERVICE</h2> <br>
-        <p class="aProposText"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. 
-            Vivamus venenatis arcu ac magna tincidunt, quis mattis mi dictum.Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. Vivamus venenatis arcu ac magna tincidunt, quis mattis mi dictum.
+        <p class="aProposText"> Professionnalisme, réactivité et flexibilité sont au cœur de mon service. Mon approche personnalisée me permet de m’adapter à vos envies, que ce soit pour le choix des styles musicaux ou pour l’intégration d’animations comme les jeux. 
+            <br> <br>Toujours dynamique et présent au micro, mon objectif est simple : vous offrir une expérience sur-mesure et garantir votre entière satisfaction.
         </p>
         <div class="buttonWrapper">
             <button class="aproposbtn">EN SAVOIR PLUS</button>
@@ -98,6 +89,15 @@ ob_start();
             </div>
             <button class="voirTout">VOIR TOUT</button>
         </div>
+</div>
+
+<div class="evenementSpecial">
+    <h2> UN EVENEMENT SPECIAL? <br> NOUS FAISONS DES DEVIS PERSONNALISES:
+    </h2>
+    <div class="buttonWrapper contact">
+        <button class="aproposbtn">CONTACTEZ-MOI</button>
+    </div>
+
 </div>
 
 

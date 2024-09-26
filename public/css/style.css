@@ -92,7 +92,6 @@ nav ul li a {
     cursor: pointer;
 }
 
-/* Style pour mobileNav */
 .mobileNav {
     display: none; 
     flex-direction: column;
@@ -175,8 +174,6 @@ nav ul li a {
 /* Page index  */
 
 
-
-
 .aPropos {
     display: flex;
     align-items: center;
@@ -192,13 +189,13 @@ nav ul li a {
 .photoQuentin{
     position: relative;
     width: 100vw;
-    height: 600px;
+    height: auto;
 
 }
 .presentation{
     position: relative;
     width: 100vw;
-    height: 600px;
+    height: auto;
     background: #9e3fe5;
     z-index: 1;
     overflow: hidden;
@@ -208,16 +205,24 @@ nav ul li a {
 h2{
     font-family: Fira Sans Condensed, sans serif;
     font-weight: 800;
-    padding-top: 3em;
+    padding-top: 2em;
+    padding-bottom: 2em;
     text-align: center;
     line-height: 1.2;
     
 }
 
+.quentinProd{
+    padding: 2em;
+
+}
+
 
 .aProposText {
     display: block;
-    padding: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 3em;
     font-family: Fira Sans, sans serif;
     font-size: 16px;
     font-weight: 400;
@@ -228,6 +233,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 2em;
     
 }
 
@@ -246,7 +252,7 @@ h2{
 
 }
 
-/* PRESTATIONS */
+/* CARDS INDEX */
 
 .cardsContainer {
     display: flex;
@@ -256,7 +262,6 @@ h2{
     padding: 20px;
 }
 
-/* Styles pour chaque carte */
 .card {
     background-color: #13181C; 
     color: #fff; 
@@ -273,7 +278,6 @@ h2{
     transition: transform 0.3s, box-shadow 0.3s; 
 }
 
-/* Styles pour le titre de chaque carte */
 .card h3 {
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 1.5em;
@@ -284,14 +288,13 @@ h2{
     padding-left: 2em;
 }
 
-/* Styles pour le prix */
+
 .prix {
     font-size: 1.4em;
     font-weight: bold;
     padding-left: 1em;
 }
 
-/* Styles pour la description */
 .description {
     font-family: 'Fira Sans', sans-serif;
     font-size: 0.9em;
@@ -299,31 +302,160 @@ h2{
     text-align: left;
 }
 
-/* Liste de la description */
+
 .description ul {
-    list-style-type: disc; /* Puces pour la liste */
-    padding-left: 20px; /* Espacement gauche pour les puces */
+    list-style-type: disc; 
+    padding-left: 20px; 
     margin: 0;
 }
 
-/* Styles pour le bouton */
+
 button.voirTout {
-    background-color: #9F3FE5; /* Couleur de fond du bouton */
-    color: white; /* Couleur du texte du bouton */
-    border: none; /* Supprime les bordures du bouton */
-    border-radius: 20px; /* Coins arrondis */
-    padding: 10px 20px; /* Espacement interne du bouton */
-    font-size: 1em; /* Taille de la police */
-    font-weight: bold; /* Poids de la police */
-    cursor: pointer; /* Curseur pointeur */
-    transition: background-color 0.3s, color 0.3s; /* Transition fluide */
-    align-self: center; /* Centre le bouton horizontalement */
+    background-color: #9F3FE5; 
+    color: white; 
+    border: none; 
+    border-radius: 20px; 
+    padding: 10px 20px; 
+    font-size: 1em; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+    align-self: center; 
 }
 
-/* Style pour le bouton au survol */
+
 button.voirTout:hover {
-    background-color: #FF7B30; /* Couleur de fond au survol */
-    color: white; /* Couleur du texte au survol */
+    background-color: #FF7B30; 
+    color: white; 
+}
+
+.evenementSpecial{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px; 
+    width: 100%;
+    max-width: 368px; 
+    height: auto; 
+    padding: 2em; 
+}
+
+.buttonWrapper {
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+/* FOOTER */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+
+}
+
+.containerPresentation {
+    margin-bottom: 30px;
+}
+
+
+.reseauxSociaux{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.reseauxSociaux a{
+
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.facebook {
+    fill: #FF7B30;
+}
+
+.instagram {
+    fill: #FF7B30;
+}
+
+.tiktok {
+    fill: #FF7B30; 
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    color: #fff; 
+    text-decoration: none; 
+}
+
+ul li a:hover {
+    text-decoration: underline; 
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+.mentionsLegales{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+    font-size: 12px;
+}
+
+/* PRESTATIONS */
+
+.informationPresta{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100vw; 
+    background-color: #9e3fe5;
+    height: auto;
+    margin: 0; 
+    padding-top: 3em;
+
+}
+
+.buttonWrapper.presta {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+    padding-bottom: 2em;
+}
+
+.titrePresta{
+    display: none;
+    background: linear-gradient(90deg, #9F3FE5, #FF7B30);
+    width: auto;
+    height: 150px;
 }
    
 
@@ -401,14 +533,20 @@ button.voirTout:hover {
         padding: 3em;
         padding-left: 0;
         padding-right: 0;
+        text-align: left;
     }
 
     h2{
-        font-size: 45px;
+        font-size: 48px;
         line-height: 1.2;
+        padding-bottom: 1em;
     }
 
     .quentinProd{
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        padding-top: 1em;
         text-align: left;
     }
 
@@ -419,7 +557,6 @@ button.voirTout:hover {
     }
 
     .aproposbtn{
-        
         border: 2px solid #9F3FE5;
         background-color: #9F3FE5;
         transition: all 0.3s;
@@ -458,6 +595,70 @@ button.voirTout:hover {
 
     button.voirTout {
         margin-top: 2em;
+    }
+
+    .evenementSpecial { 
+        max-width: 100%;          
+        height: auto;
+    }
+
+    .buttonWrapper.contact{
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    .footer {
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: flex-start; 
+    }
+
+    .footer {
+        flex-direction: row; 
+        justify-content:space-around; 
+        align-items: flex-start; 
+        width: 100%;
+    }
+    .containerPresentation
+    .containerService,
+    .containerLiens
+    .mentionsLegales{
+        flex: 1;
+        margin: 0 20px; 
+    }
+
+    .informationPresta {
+        background-color: transparent; 
+        width: 40%; 
+        margin: 0 auto;
+        text-align: center; 
+    }
+
+    .presentationPresta {
+        width: 100%; 
+    }
+
+    .buttonWrapper .presta{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .titrePresta{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4em;
+        margin-top: 4em;
+    }
+
+    .banderole{
+        padding: 20px;
+        font-size: 50px;
     }
 
 
