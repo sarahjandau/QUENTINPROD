@@ -35,6 +35,28 @@ ob_start();
     <h2 class="banderole">PRESTATION ANNIVERSAIRE</h2>
 </div>
 
+<div class="prestationCardContainer">
+    <div class="cards">
+        <h3>ANNIVERSAIRE</h3>
+        <p class="price">A partir de : <strong>500€</strong></p>
+        <h4>Cette prestation comprend :</h4>
+        <ul class="serviceList">
+            <li>Sonorisation sans limite d'heure</li>
+            <li>Lyre sur totem</li>
+            <li>Gig bar</li>
+            <li>Machine à fumée</li>
+            <li>Devanture en lycra noire ou blanche</li>
+        </ul>
+    </div>
+    <div class="optionsPlus">
+        <h4>Options en plus ?</h4>
+        <ul class="options-list">
+            <li>2 jet de scène : 50€</li>
+            <li>Éclairage de salle complet : 50€</li>
+        </ul>
+    </div>
+</div>
+
 
 
 

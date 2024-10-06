@@ -457,7 +457,109 @@ ul li a:hover {
     width: auto;
     height: 150px;
 }
-   
+
+/*  PAGE A PROPOS */
+
+
+
+.aproposContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color:#9F3FE5;
+}
+
+.presentationQuentin{
+    width: 100vw;
+    height: auto;
+}
+
+.monParcours{
+    padding: 20px;
+    background-color:#9F3FE5; 
+    color: white;
+}
+
+.monParcours h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.aProposText {
+    margin-bottom: 20px;
+}
+
+
+.aproposbtn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.prestationCardContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;  
+    margin: 20px auto;
+    padding: 20px;
+    background-color: 13181C; 
+    border-radius: 12px; 
+    border: 1px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.cards h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.price {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.price strong {
+    font-size: 30px; 
+    color: #fff;
+}
+
+.cards h4, .optionsPlus h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: white;  
+}
+
+.serviceList, .options-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.serviceList li, .options-list li {
+    margin-bottom: 10px;
+    color: #fff;  
+    line-height: 1.6;
+}
+
+.optionsPlus {
+    margin-top: 20px;
+}
+
+.options-list li {
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.options-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ffffff; 
+}
+
 
 
 @media (min-width: 768px) {
@@ -529,7 +631,8 @@ ul li a:hover {
         gap: 50px;
     }
 
-    .aProposText {
+
+    .aProposText{
         padding: 3em;
         padding-left: 0;
         padding-right: 0;
@@ -661,11 +764,66 @@ ul li a:hover {
         font-size: 50px;
     }
 
+    .pageApropos{
+        width: 40%; 
+        margin: 0 auto;
+        text-align: center; 
+        padding-bottom: 5em;
+    }
 
-    
+    .aproposContainer {
+        display: flex;               
+        flex-direction: row;        
+        max-width: 100%;
+        margin: 0 auto;
+        background-color: #9F3FE5; 
+    }
+
+    .presentationQuentin {
+        width: 50%;                
+        height: 12%;             
+    }
+
+    .monParcours {
+        padding: 5em;           
+        background-color: #9F3FE5; 
+        color: white;              
+        width: 50%;                
+    }
+
+    .monParcours h2 {
+        font-size: 24px;          
+        margin-bottom: 15px;      
+    }
+
+
+    .aproposbtn a {
+        text-decoration: none;
+        color: inherit;       
+    }
+
+    .prestationCardContainer {
+        flex-direction: row;
+        justify-content: space-between; 
+        gap: 40px; 
+    }
+
+    .cards, .optionsPlus {
+        flex: 1;
+    }
+
+    .optionsPlus {
+        margin-top: 0; 
+    }
+
+    .prestationCardContainer {
+        flex-direction: column; 
+        max-width: 1100px;
+    }
 }
 
 
+    
 
 
 
