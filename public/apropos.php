@@ -52,6 +52,23 @@ ob_start();
     
 </div>
 
+<div class="containerChiffres">
+    <div class="experience">
+        <span class="annee">10</span><span class="space"></span><br>
+        <span class="text">ans d’expériences</span>
+    </div>
+    <div class="evenements">
+        <span class="chiffre">30</span><br />
+        <span class="text">évènements organisés</span>
+    </div>
+    <div class="satisfaction">
+        <span class="pourcentage">100%</span><br />
+        <span class="text">de clients satisfaits</span>
+    </div>
+</div>
+  
+
+
 
 
 </body>

@@ -1,106 +1,113 @@
 <?php
 ob_start();
-?>
+require '../vendor/autoload.php'; 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
+if (isset($_POST['submit'])) {
+    extract($_POST);
 
-<?php
+    if (!empty($prestations) && !empty($name) && !empty($email) && !empty($message) && !empty($telephone)) {
+        
+        // Vérification du numéro de téléphone
+        if (!preg_match('/^\d{10}$/', $telephone)) {
+            echo "Erreur : Le numéro de téléphone doit contenir exactement 10 chiffres.";
+            exit; 
+        }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer et sécuriser les données
-    $nomPrenom = htmlspecialchars(trim($_POST['nomPrenom']));
-    $prestations = htmlspecialchars(trim($_POST['prestations']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $telephone = htmlspecialchars(trim($_POST['telephone']));
-    $message = htmlspecialchars(trim($_POST['message']));
+        $to = "sarah.jandau@gmail.com";
+        $subject = $prestations;
 
-    // Destinataire et sujet de l'e-mail
-    $destinataire = "sarah.jandau@gmail.com"; // Remplacez par votre adresse e-mail
-    $sujet = "Nouveau message de contact";
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'sarah.jandau@gmail.com';
+            $mail->Password = 'xyka rgeu zgct aofm'; 
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
 
-    // Corps de l'e-mail
-    $corps = "Nom et Prénom: $nomPrenom\n";
-    $corps .= "Prestations: $prestations\n";
-    $corps .= "E-mail: $email\n";
-    $corps .= "Téléphone: $telephone\n";
-    $corps .= "Message:\n$message\n";
+            $mail->setFrom($email, $name);
+            $mail->addAddress($to);
 
-    // En-têtes de l'e-mail
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
+            $mail->isHTML(false);
+            $mail->Subject = $subject;
+            $mail->Body = "Nom et Prénom: $name\nNuméro de téléphone: $telephone\nE-mail: $email\nMessage:\n$message\n";
 
-    // Envoyer l'e-mail
-    if (mail($destinataire, $sujet, $corps, $headers)) {
-        $messageSuccess = "Votre message a été envoyé avec succès!";
+            $mail->send();
+            
+            header('Location: contact.php?success=1');
+            exit(); 
+        } catch (Exception $e) {
+            echo "Erreur : {$mail->ErrorInfo}";
+        }
     } else {
-        $messageError = "Une erreur s'est produite lors de l'envoi de votre message.";
+        echo "Veuillez remplir tous les champs.";
     }
 }
 
-if (isset($messageSuccess)) {
-    echo "<div class='message' style='color: green;'>$messageSuccess</div>";
-}
-if (isset($messageError)) {
-    echo "<div class='message' style='color: red;'>$messageError</div>";
-}
 ?>
 
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/style.css">
+    <title>Quentin Prod</title>
+</head>
+<body>
 
 <h2>Formulaire de Contact</h2>
 
-
-<form action="" method="post">
-    <div class="form-group">
-        <label for="nomPrenom">Nom et Prénom :</label>
-        <input type="text" id="nomPrenom" name="nomPrenom" required>
-    </div>
-    <div class="form-group">
-        <label for="prestations">Prestations :</label>
-        <select id="prestations" name="prestations" required>
-            <option value="" disabled selected>Choisissez une prestation</option>
-            <option value="prestation1">Prestation 1</option>
-            <option value="prestation2">Prestation 2</option>
-            <option value="prestation3">Prestation 3</option>
-            <option value="prestation4">Prestation 4</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="email">E-mail :</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="telephone">Numéro de téléphone :</label>
-        <input type="tel" id="telephone" name="telephone" required>
-    </div>
-    <div class="form-group">
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-    </div>
-    <button type="submit">Envoyer</button>
-</form>
+<div class="containerContact">
+    <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+        <p style="color: green; font-weight: bold;">Votre message a bien été envoyé. Merci de nous avoir contactés !</p>
+    <?php else: ?>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="name">Nom et Prénom :</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="prestations">Prestations :</label>
+                <select id="prestations" name="prestations" required>
+                    <option value="" disabled selected>Choisissez une prestation</option>
+                    <option value="Prestation Mariage">Mariage</option>
+                    <option value="Prestation Bapteme">Bapteme</option>
+                    <option value="Prestation Anniversaire">Anniversaire</option>
+                    <option value="Autre question">Autre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Numéro de téléphone :</label>
+                <input type="tel" id="telephone" name="telephone" required pattern="\d{10}" title="Le numéro de téléphone doit contenir 10 chiffres.">
+            </div>
+            <div class="form-group">
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" name="submit">Envoyer</button>
+        </form>
+    <?php endif; ?>
+</div>
 
 </body>
 </html>
-</body>
-</html>
-
-
-
-
-
 
 <?php
 $content = ob_get_clean();
 $titre = "CONTACTEZ-NOUS";
-$headerImage = 'images/Quentin1.jpg';
+$headerImage = 'images/header.jpg';
 require "template.php";
 ?>
+

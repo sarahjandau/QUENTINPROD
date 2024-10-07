@@ -5,7 +5,7 @@
 }
 
 /* template */
-body {
+body{
     font-family: 'Fira Sans', sans-serif;
     line-height: 1.6;
     background-color: #000;
@@ -275,8 +275,15 @@ h2{
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 
-    transition: transform 0.3s, box-shadow 0.3s; 
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s; 
 }
+
+.card.hovered {
+    background: linear-gradient(to bottom, #9F3FE5, #FF7B30); 
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1); 
+    transform: translateY(-5px); 
+}
+
 
 .card h3 {
     font-family: 'Fira Sans Condensed', sans-serif;
@@ -458,6 +465,86 @@ ul li a:hover {
     height: 150px;
 }
 
+
+  
+.servicecontainer{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px; 
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+
+.photomateriel{
+    width: 100vw;
+    height: auto; 
+}
+  
+.servicequalitecontainer {
+    display: flex;
+    flex-direction: column; 
+    width: 100vw;
+    color: #ffffff; 
+    padding: 2em;
+}
+
+.accordeon {
+    margin: 20px;
+    height: 200px; /* Ajoute de l'espace autour de l'accordéon */
+}
+
+/* Styles pour les divs de questions */
+.question {
+    display: flex; /* Utilise flexbox pour aligner les éléments horizontalement */
+    justify-content: space-between; /* Espace entre le titre et le SVG */
+    align-items: center; /* Centre verticalement les éléments */
+    padding: 10px 20px; /* Espacement interne */
+    border: 1px solid #ffffff; /* Bordure blanche */
+    background-color: #13181C; /* Fond sombre pour contraste */
+    border-radius: 5px; /* Arrondi des coins */
+    margin-bottom: 10px; /* Espacement entre les questions */
+    transition: background 0.3s; /* Transition pour les effets de survol */
+}
+
+/* Style pour les titres h3 */
+.question h3 {
+    margin: 0; /* Supprime les marges par défaut */
+    font-family: 'Fira Sans Condensed', sans-serif; /* Assure la cohérence de la police */
+    color: #ffffff; /* Couleur du texte */
+    font-size: 1.5em; /* Taille du texte */
+}
+
+/* Styles pour les icônes SVG */
+.question svg {
+    width: 30px; /* Largeur de l'icône */
+    height: 30px; /* Hauteur de l'icône */
+    fill: #ffffff; /* Couleur de l'icône */
+    transition: transform 0.3s; /* Transition pour l'effet de survol */
+}
+
+/* Optionnel: effet de survol pour changer le fond des questions */
+.question:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement clair au survol */
+}
+
+/* Styles pour les réponses */
+.reponse {
+    display: none; /* Cacher les réponses par défaut */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ffffff; /* Bordure blanche */
+    background-color: #1E2328; /* Fond pour la réponse */
+    border-radius: 5px; /* Arrondi des coins */
+    margin-top: 10px; /* Espacement au-dessus des réponses */
+}
+
+/* Montre la réponse lorsque la question est active */
+.question.active + .reponse {
+    display: block; /* Afficher la réponse si la question est active */
+}
+
+
 /*  PAGE A PROPOS */
 
 
@@ -481,22 +568,22 @@ ul li a:hover {
     color: white;
 }
 
-.monParcours h2 {
+.monParcours h2{
     font-size: 24px;
     margin-bottom: 15px;
 }
 
-.aProposText {
+.aProposText{
     margin-bottom: 20px;
 }
 
 
-.aproposbtn a {
+.aproposbtn a{
     text-decoration: none;
     color: inherit;
 }
 
-.prestationCardContainer {
+.prestationCardContainer{
     display: flex;
     flex-direction: column;
     max-width: 350px;  
@@ -508,61 +595,141 @@ ul li a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
 }
 
-.cards h3 {
+.cards h3{
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
     color: #fff;
 }
 
-.price {
+.price{
     font-size: 22px;
     margin-bottom: 20px;
     color: #fff;
 }
 
-.price strong {
+.price strong{
     font-size: 30px; 
     color: #fff;
 }
 
-.cards h4, .optionsPlus h4 {
+.cards h4, .optionsPlus h4{
     font-size: 18px;
     margin-bottom: 10px;
     color: white;  
 }
 
-.serviceList, .options-list {
+.serviceList, .options-list{
     list-style-type: none;
     padding-left: 0;
 }
 
-.serviceList li, .options-list li {
+.serviceList li, .options-list li{
     margin-bottom: 10px;
     color: #fff;  
     line-height: 1.6;
 }
 
-.optionsPlus {
+.optionsPlus{
     margin-top: 20px;
 }
 
-.options-list li {
+.options-list li{
     margin-bottom: 8px;
     padding-left: 15px;
     position: relative;
 }
 
-.options-list li::before {
+.options-list li::before{
     content: "•";
     position: absolute;
     left: 0;
     color: #ffffff; 
 }
 
+.containerChiffres {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;  
+    padding: 20px;      
+}
+
+.experience, .evenements, .satisfaction {
+    margin-bottom: 20px; 
+    text-align: center; 
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    padding: 2em;
+}
+
+.annee, .chiffre, .pourcentage{
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 800;
+    font-size: 90px;
+    align-items: center;
+
+}
+
+/* CONTACT */
+
+.containerContact {
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #ffffff; 
+    font-family: 'Fira Sans', sans-serif;
+    padding: 20px;
+    width: 100%;
+    max-width: 440px; 
+    margin: 20px auto; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    resize: vertical;
+    font-family: 'Fira Sans', sans-serif; 
+}
+
+label {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    color: #000;
+}
+
+button[type=submit]{
+    background-color: #FF7B30; 
+    color: white; 
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 800;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type=submit]:hover{
+    background-color: #FF7B30; 
+}
 
 
-@media (min-width: 768px) {
+
+@media (min-width: 768px){
 
     
     .hero{
@@ -572,28 +739,28 @@ ul li a:hover {
     }
     
         
-    nav ul {
+    nav ul{
         gap: 2em;
     }
     
-    .desktopNav {
+    .desktopNav{
         display: block;
     }
 
-    .menuToggle {
+    .menuToggle{
         display: none;
     }
 
 
-    .dropdown:hover .dropdownMenu {
+    .dropdown:hover .dropdownMenu{
         display: block; 
     }
 
-    .dropdown {
+    .dropdown{
         position: relative; 
     }
     
-    .dropdownMenu {
+    .dropdownMenu{
         display: none;
         flex-direction: column;
         gap: 0.5em;
@@ -654,7 +821,7 @@ ul li a:hover {
     }
 
 
-    .buttonWrapper {
+    .buttonWrapper{
         justify-content: left;
     
     }
@@ -802,25 +969,69 @@ ul li a:hover {
         color: inherit;       
     }
 
-    .prestationCardContainer {
+    .prestationCardContainer{
         flex-direction: row;
         justify-content: space-between; 
         gap: 40px; 
     }
 
-    .cards, .optionsPlus {
+    .cards, .optionsPlus{
         flex: 1;
     }
 
-    .optionsPlus {
+    .optionsPlus{
         margin-top: 0; 
     }
 
     .prestationCardContainer {
-        flex-direction: column; 
+        flex-direction: column;
         max-width: 1100px;
     }
+    
+    .servicecontainer {
+        display: flex; 
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 6em;
+        padding-bottom: 6em;
+    }
+    
+    .servicequalitecontainer {
+        position: relative;
+        width: 50%; 
+        padding-top: 0;
+        padding-bottom: 3em;
+        
+    }
+    
+    .photomateriel {
+        border-radius: 300px;
+        width: 414px;
+        height: 100%;
+        margin-right: 4em;
+        margin-top: 4em;
+        align-self: flex-start; 
+    }
+
+    
+    .containerChiffres {
+        flex-direction: row;    
+        justify-content: space-around; 
+        align-items: flex-start; 
+    }
+    
+    .experience, .evenements, .satisfaction{
+        margin-bottom: 0; 
+        text-align: left; 
+    }
+    .containerContact {
+        margin: 40px auto;
+        max-width: 900px; 
+    }
 }
+    
+
+    
 
 
     
