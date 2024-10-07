@@ -47,7 +47,7 @@ if(session_status() == PHP_SESSION_NONE){
                     </ul>
                 </li>
                 <li><a href="./public/contact.php">CONTACTEZ-NOUS</a></li> <br>
-                <li><a href="login.php">ESPACE ADMIN</a></li>
+                <li><a href="./public/login.php">ESPACE ADMIN</a></li>
             </ul>
         </nav>
         <nav class="desktopNav">
@@ -63,7 +63,7 @@ if(session_status() == PHP_SESSION_NONE){
                     </ul>
                 </li>
                 <li><a href="../public/contact.php">CONTACTEZ-NOUS</a></li>
-                <li><a href="login.php">ESPACE ADMIN</a></li>
+                <li><a href="../public/login.php">ESPACE ADMIN</a></li>
             </ul>
         </nav>
     </div>

@@ -275,7 +275,7 @@ h2{
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s; 
+    transition: transform 0.3s, box-shadow 0.3s; 
 }
 
 .card.hovered {
@@ -727,6 +727,175 @@ button[type=submit]:hover{
     background-color: #FF7B30; 
 }
 
+/* TEMPLATE CRUD */
+
+.containerCrud {
+    display: flex;
+    flex-direction: column; 
+    height: 100vh;
+}
+  
+.containerMenuCrud{
+    width: 100%; 
+    background-color: #9F3FE5; 
+    color: white;
+    padding: 20px 0;
+}
+  
+  
+.containerMenuCrud .menuNavigation{
+    width: 100%;
+    padding: 0 5%; 
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+  
+.containerMenuCrud .menuNavigation ul{
+    list-style: none;
+    width: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    color: white;
+}
+  
+.containerMenuCrud .menuNavigation ul li{
+    margin: 15px 0; 
+}
+  
+.containerMenuCrud .menuNavigation ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding: 5px;
+}
+  
+.containerMenuCrud .menuNavigation .adminSection{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+.containerMenuCrud .menuNavigation .adminSection .adminButton{
+    background-color: white;
+    color: black; 
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+  
+.contentCrud{
+    padding: 20px;
+    flex-grow: 1; 
+    background-color: white; 
+}
+
+.panelAdmin{
+    font-size: 30px;
+    padding-top:  2em;
+    padding-bottom: 2em;
+}
+
+/* LOGIN */
+
+.containerLogin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh; 
+    min-height: 100vh; 
+}
+  
+  .containerLogin .imageLogin{
+    display: none; 
+}
+  
+  
+.containerLogin .containerConnexion{
+    width: 100%; 
+    background-color: #ffffff;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+}
+  
+ 
+.containerLogin .containerConnexion .logoQuentin{
+    padding: 30px;
+    text-align: center; 
+}
+  
+.containerLogin .containerConnexion h2{
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 800;
+    font-style: extra-bold;
+    text-align: center;
+    color: #000;
+}
+  
+.containerLogin .containerConnexion form{
+    width: 100%; 
+    max-width: 300px; 
+    display: flex;
+    flex-direction: column;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.containerLogin .containerConnexion form label{
+    margin-top: 10px;
+    font-size: 14px;
+}
+  
+.containerLogin .containerConnexion form input[type="text"],
+.containerLogin .containerConnexion form input[type="email"],
+.containerLogin .containerConnexion form input[type="password"]{
+    width: 100%; 
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+  
+
+.containerLogin .containerConnexion form input[type="submit"]{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #9F3FE5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+  
+  
+.containerLogin .containerConnexion form input[type="submit"]:hover{
+    background-color: #7e32b2; 
+}
+
+.titreNoir {
+    color: black;
+}
+
+.paragrapheNoir {
+    color: black;
+}
 
 
 @media (min-width: 768px){
@@ -1028,16 +1197,96 @@ button[type=submit]:hover{
         margin: 40px auto;
         max-width: 900px; 
     }
+
+    /* template crud  */
+    .containerCrud{
+        display: flex; 
+        flex-direction: row; 
+    }
+      
+      .containerMenuCrud{
+        width: 300px; 
+        height: 100vh; 
+        position: fixed; 
+        background-color: #9F3FE5; 
+    }
+      
+      .containerMenuCrud .menuNavigation{
+        padding: 20px; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+      
+      .containerMenuCrud .menuNavigation ul{
+        list-style: none; 
+        margin: 0; 
+        padding: 0;
+        width: 100%; 
+    }
+      
+      .containerMenuCrud .menuNavigation ul li{
+        margin: 5px 0; 
+    }
+      
+      .containerMenuCrud .menuNavigation ul li a{
+        font-size: 18px; 
+        text-decoration: none; 
+        color: white; 
+        padding: 5px; 
+    }
+      
+      .containerMenuCrud .menuNavigation .adminSection{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+      
+      .containerMenuCrud .menuNavigation .adminSection .adminButton{
+        background-color: white;
+        color: black; 
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+      
+      .contentCrud{
+        margin-left: 300px; 
+        padding: 40px; 
+        background-color: white; 
+    }
+
+    /* LOGIN */
+
+    .containerLogin{
+        flex-direction: row; 
+    }
+    
+    .containerLogin .imageLogin {
+        display: block; 
+        width: 40%; 
+        background-image: url('/public/images/Quentin1.jpeg');
+        background-size: cover;
+        background-position: center;
+      }
+    
+    .containerLogin .containerConnexion{
+        width: 60%; 
+        height: 100%; 
+        padding: 40px;
+        justify-content: center;
+      }
+    
+    .containerLogin .containerConnexion form {
+        width: 300px; 
+    }
+
+    .containerLogin .containerConnexion h2{
+        font-weight: 600;
+        font-size: 20px;
+    }
+
 }
-    
 
-    
-
-
-    
-
-
-
-
-  
-  
+      
