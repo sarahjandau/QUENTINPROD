@@ -53,6 +53,20 @@ document.addEventListener('DOMContentLoaded', function() {
     card.addEventListener('mouseleave', () => {
         card.classList.remove('hovered'); 
     });
+
+    // créer une prestation 
+
+    
+    function validateForm(){
+        const moduleCheckboxes = document.querySelectorAll('input[name="modules[]"]');
+        const isChecked = Array.from(moduleCheckboxes).some(checkbox => checkbox.checked);
+        if (!isChecked){
+            alert("Veuillez cocher au moins un module.");
+            return false; 
+        }
+        return true;
+    }
+    
     
 });
 

@@ -19,14 +19,20 @@ if(session_status() == PHP_SESSION_NONE){
     <title>Bienvenue dans ton panel administrateur ! </title>
 </head>
 <body>
+<style>
+        body{
+            color: black; 
+            background-color: white; 
+        }
+    </style>
     <div class="containerCrud">
         <div class="containerMenuCrud"> 
             <nav class="menuNavigation">
                 <h3 class="panelAdmin">Tableau de bord</h3>
                 <ul>
-                    <li><a href="readEquipes.php#">Prestations</a></li>
-                    <li><a href="readJoueurs.php">Modules</a></li>
-                    <li><a href="readRencontres.php">Extras</a></li>
+                    <li><a href="readPrestation.php">Prestations</a></li>
+                    <li><a href="readModule.php">Modules</a></li>
+                    <li><a href="readExtra.php">Extras</a></li>
                     <li><a href="readUser.php">Utilisateurs</a></li>
 
                 </ul>
