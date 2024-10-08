@@ -44,7 +44,7 @@ class Prestation {
 
     public static function getPrestationById($id_prestation) {
         $pdo = MyDbConnection::getInstance()->getPdo();
-        $stmt = $pdo->prepare('SELECT * FROM prestations WHERE id_prestation = ?');
+        $stmt = $pdo->prepare('SELECT * FROM prestation WHERE id_prestation = ?');
         $stmt->execute([$id_prestation]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }    
