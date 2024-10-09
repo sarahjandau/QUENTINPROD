@@ -1,5 +1,40 @@
 <?php
 ob_start();
+require_once '../dbConnect/dbConnect.php'; // Assurez-vous que ce chemin est correct
+
+// Connexion à la base de données
+$db = MySqlConnect::getInstance();
+$conn = $db->getPdo();
+
+// Requête pour récupérer uniquement la prestation "Anniversaire"
+$sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_prix, 
+        GROUP_CONCAT(DISTINCT m.nom) AS modules, 
+        GROUP_CONCAT(DISTINCT e.nom) AS extras 
+        FROM prestation p 
+        LEFT JOIN comprend c ON p.id_prestation = c.id_prestation 
+        LEFT JOIN module m ON c.id_module = m.id_module 
+        LEFT JOIN contient co ON p.id_prestation = co.id_prestation 
+        LEFT JOIN extra e ON co.id_extra = e.id_extra 
+        WHERE p.nom = 'Anniversaire' 
+        GROUP BY p.id_prestation";
+
+$result = $conn->query($sql);
+
+// Vérifie si des résultats sont retournés
+$prestations = [];
+if ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    $prestations[] = [
+        'id_prestation' => $row['id_prestation'],
+        'nom' => $row['prestation_nom'],
+        'prix' => $row['prestation_prix'],
+        'modules' => !empty($row['modules']) ? explode(',', $row['modules']) : [],
+        'extras' => !empty($row['extras']) ? explode(',', $row['extras']) : []
+    ];
+}
+
+// Ferme la connexion à la base de données
+$conn = null;
+
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +45,8 @@ ob_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/css/style.css">
-    <title>Quentin Prod</title>
+    <title>Quentin Prod - Anniversaire</title>
 </head>
 <body>
 
@@ -36,25 +68,29 @@ ob_start();
 </div>
 
 <div class="prestationCardContainer">
-    <div class="cards">
-        <h3>ANNIVERSAIRE</h3>
-        <p class="price">A partir de : <strong>500€</strong></p>
-        <h4>Cette prestation comprend :</h4>
-        <ul class="serviceList">
-            <li>Sonorisation sans limite d'heure</li>
-            <li>Lyre sur totem</li>
-            <li>Gig bar</li>
-            <li>Machine à fumée</li>
-            <li>Devanture en lycra noire ou blanche</li>
-        </ul>
-    </div>
-    <div class="optionsPlus">
-        <h4>Options en plus ?</h4>
-        <ul class="options-list">
-            <li>2 jet de scène : 50€</li>
-            <li>Éclairage de salle complet : 50€</li>
-        </ul>
-    </div>
+    <?php if (!empty($prestations)): ?>
+        <?php $prest = $prestations[0]; // On suppose qu'il n'y a qu'une seule prestation "Anniversaire" ?>
+        <div class="cards">
+            <h3><?php echo htmlspecialchars($prest['nom']); ?></h3>
+            <p class="price">A partir de : <strong><?php echo htmlspecialchars($prest['prix']); ?>€</strong></p>
+            <h4>Cette prestation comprend :</h4>
+            <ul class="serviceList">
+                <?php foreach ($prest['modules'] as $module): ?>
+                    <li><?php echo htmlspecialchars($module); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <div class="optionsPlus">
+            <h4>Options en plus ?</h4>
+            <ul class="options-list">
+                <?php foreach ($prest['extras'] as $extra): ?>
+                    <li><?php echo htmlspecialchars($extra); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php else: ?>
+        <p>Aucune prestation à afficher.</p>
+    <?php endif; ?>
 </div>
 
 <div class="servicecontainer">
@@ -75,16 +111,8 @@ ob_start();
             <h4>Événement DJ personnalisable</h4>
             <p>Habillage en lycra blanc ou noir selon votre thème. Un setup professionnel pour une soirée mémorable !</p>
         </div>
-            
     </div>
 </div>
-    
-
-
-
-
-
-
 
 <?php
 $content = ob_get_clean();

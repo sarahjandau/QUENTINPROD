@@ -34,11 +34,10 @@ ob_start();
 
 
 <div class="accordeon">
-    <div class="question">
+    <div class="question" onclick="toggleAccordions(this)">
         <h3>STANDARD</h3>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/>
-        </svg>
+        <span class="toggle-icon">+</span>
+        
     </div>
     <div class="reponse">
         <div class="prestationCardContainer">
@@ -66,11 +65,9 @@ ob_start();
         </div>
     </div>
 
-    <div class="question">
+    <div class="question" onclick="toggleAccordions(this)">
         <h3>PRESTIGE</h3>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/>
-        </svg>
+        <span class="toggle-icon">+</span>
     </div>
     <div class="reponse">
         <div class="prestationCardContainer">
@@ -98,11 +95,9 @@ ob_start();
         </div>
     </div>
 
-    <div class="question">
+    <div class="question" onclick="toggleAccordions(this)">
         <h3>COMPLET</h3>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/>
-        </svg>
+        <span class="toggle-icon">+</span>
     </div>
     <div class="reponse">
         <div class="prestationCardContainer">
@@ -149,8 +144,6 @@ ob_start();
     </div>
 </div>
     
-
-
 
 
 

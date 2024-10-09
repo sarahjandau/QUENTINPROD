@@ -1,5 +1,39 @@
 <?php
 ob_start();
+require_once 'dbConnect/dbConnect.php'; // Assurez-vous que ce chemin est correct
+
+// Connexion à la base de données
+$db = MySqlConnect::getInstance();
+$conn = $db->getPdo();
+
+// Requête pour récupérer les prestations
+$sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_prix, 
+        GROUP_CONCAT(DISTINCT m.nom) AS modules, 
+        GROUP_CONCAT(DISTINCT e.nom) AS extras 
+        FROM prestation p 
+        LEFT JOIN comprend c ON p.id_prestation = c.id_prestation 
+        LEFT JOIN module m ON c.id_module = m.id_module 
+        LEFT JOIN contient co ON p.id_prestation = co.id_prestation 
+        LEFT JOIN extra e ON co.id_extra = e.id_extra 
+        GROUP BY p.id_prestation";
+
+$result = $conn->query($sql);
+
+// Vérifie si des résultats sont retournés
+$prestations = [];
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    $prestations[] = [
+        'id_prestation' => $row['id_prestation'], // Ajoutez cette ligne pour inclure id_prestation
+        'nom' => $row['prestation_nom'],
+        'prix' => $row['prestation_prix'],
+        'modules' => !empty($row['modules']) ? explode(',', $row['modules']) : [],
+        'extras' => !empty($row['extras']) ? explode(',', $row['extras']) : []
+    ];
+}
+
+// Ferme la connexion à la base de données
+$conn = null;
+
 ?>
 
 <!DOCTYPE html>
@@ -8,16 +42,10 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/css/style.css">
     <title>Quentin Prod</title>
 </head>
 <body>
-
 
 <div class="aPropos">
     <img src="public/images/Quentin1.jpeg" alt="" class="photoQuentin">
@@ -34,74 +62,46 @@ ob_start();
 
 <h2> NOS PRESTATIONS </h2>
 
-
 <div class="cardsContainer">
-       
-        <div class="card">
-            <h3>BAPTEME</h3>
-            <h6>A partir de :</h6>
-            <div class="prix">600€</div>
-            <div class="description">
-                <ul>
-                    <li>Sonorisation sans limite d’heure</li>
-                    <li>Lyre sur totem</li>
-                    <li>Gig bar</li>
-                    <li>Machine à fumée</li>
-                    <li>Deventure en lycra</li>
-                    <li>+ 2 options supplémentaires</li>
-                </ul>
+    <?php if (!empty($prestations)): ?>
+        <?php
+        $limit = 0; 
+        foreach ($prestations as $prest):
+            if ($limit >= 3) break; 
+            ?>
+            <div class="card">
+                <h3><?php echo htmlspecialchars($prest['nom']); ?></h3>
+                <h6>A partir de :</h6>
+                <div class="prix"><?php echo htmlspecialchars($prest['prix']); ?>€</div>
+                <div class="description">
+                    <ul>
+                        <?php foreach ($prest['modules'] as $module): ?>
+                            <li><?php echo htmlspecialchars($module); ?></li>
+                        <?php endforeach; ?>
+                        <?php foreach ($prest['extras'] as $extra): ?>
+                            <li><?php echo htmlspecialchars($extra); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <a href="public/prestation.php?id=<?php echo htmlspecialchars($prest['id_prestation']); ?>"> 
+                    <button class="voirTout">VOIR TOUT</button>
+                </a>
             </div>
-            <button class="voirTout">VOIR TOUT</button>
-        </div>
-
-        
-        <div class="card">
-            <h3>MARIAGE</h3>
-            <h6>A partir de :</h6>
-            <div class="prix">700€</div>
-            <div class="description">
-                <ul>
-                    <li>Sonorisation sans limite d’heure</li>
-                    <li>Lyre sur totem</li>
-                    <li>Gig bar</li>
-                    <li>Machine à fumée</li>
-                    <li>Deventure en lycra</li>
-                    <li>+ 4 options supplémentaires</li>
-                </ul>
-            </div>
-            <button class="voirTout">VOIR TOUT LES PACKS</button>
-        </div>
-
-       
-        <div class="card">
-            <h3>ANNIVERSAIRE</h3>
-            <h6>A partir de :</h6>
-            <div class="prix">500€</div>
-            <div class="description">
-                <ul>
-                    <li>Sonorisation sans limite d’heure</li>
-                    <li>Lyre sur totem</li>
-                    <li>Gig bar</li>
-                    <li>Machine à fumée</li>
-                    <li>Deventure en lycra</li>
-                    <li>+ 2 options supplémentaires</li>
-                </ul>
-            </div>
-            <button class="voirTout">VOIR TOUT</button>
-        </div>
+            <?php
+            $limit++; 
+        endforeach; ?>
+    <?php else: ?>
+        <p>Aucune prestation à afficher.</p>
+    <?php endif; ?>
 </div>
 
 <div class="evenementSpecial">
-    <h2> UN EVENEMENT SPECIAL? <br> NOUS FAISONS DES DEVIS PERSONNALISES:
-    </h2>
+    <h2> UN EVENEMENT SPECIAL? <br> NOUS FAISONS DES DEVIS PERSONNALISES:</h2>
     <div class="buttonWrapper contact">
         <button class="aproposbtn">CONTACTEZ-MOI</button>
     </div>
-
 </div>
 
-
-    
 
 <script src="public/js/style.js"></script> 
 </body>
@@ -113,3 +113,5 @@ $titre = "Transformez vos instants en <br> souvenirs musicaux";
 $headerImage = './public/images/header.jpg';
 require "public/template.php";
 ?>
+
+

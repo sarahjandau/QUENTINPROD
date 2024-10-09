@@ -54,11 +54,11 @@ ob_start();
 
 <div class="containerChiffres">
     <div class="experience">
-        <span class="annee">10</span><span class="space"></span><br>
+        <span class="annee">10</span><br>
         <span class="text">ans d’expériences</span>
     </div>
     <div class="evenements">
-        <span class="chiffre">30</span><br />
+        <span class="chiffre">30</span><br>
         <span class="text">évènements organisés</span>
     </div>
     <div class="satisfaction">
@@ -67,8 +67,26 @@ ob_start();
     </div>
 </div>
   
-
-
+<div class="servicecontainer">
+    <img src="images/materielDJ2" alt="" class="photomateriel">
+    <div class="servicequalitecontainer">
+        <h2>UN SERVICE DE QUALITÉ</h2> <br>
+        <div class="sonorisation">
+            <p>Profitez d'une sonorisation sans limite d'heure et d'un éclairage haut de gamme :</p><br>
+            <h4>Éclairage et effets visuels</h4>
+            <p>4 lyres sur totems avec habillage lycra pour un rendu moderne et élégant.</p><br>
+                
+            <h4>Effets lumineux</h4>
+            <p>La Gig Bar 2 combine stroboscopes, lasers et autres effets lumineux pour animer la piste. Une machine à fumée intensifie l’ambiance en soulignant les faisceaux.</p> <br>
+                
+            <h4>Effets spéciaux</h4>
+            <p>4 jets de scène et fumée lourde pour un moment magique, idéal pour l’ouverture de bal.</p><br>
+                
+            <h4>Événement DJ personnalisable</h4>
+            <p>Habillage en lycra blanc ou noir selon votre thème. Un setup professionnel pour une soirée mémorable !</p>
+        </div>
+    </div>
+</div>
 
 
 </body>
