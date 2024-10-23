@@ -1,12 +1,10 @@
 <?php
 ob_start();
-require_once 'dbConnect/dbConnect.php'; // Assurez-vous que ce chemin est correct
+require_once 'dbConnect/dbConnect.php'; 
 
-// Connexion à la base de données
 $db = MySqlConnect::getInstance();
 $conn = $db->getPdo();
 
-// Requête pour récupérer les prestations
 $sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_prix, 
         GROUP_CONCAT(DISTINCT m.nom) AS modules, 
         GROUP_CONCAT(DISTINCT e.nom) AS extras 
@@ -19,11 +17,10 @@ $sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_pr
 
 $result = $conn->query($sql);
 
-// Vérifie si des résultats sont retournés
 $prestations = [];
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     $prestations[] = [
-        'id_prestation' => $row['id_prestation'], // Ajoutez cette ligne pour inclure id_prestation
+        'id_prestation' => $row['id_prestation'], 
         'nom' => $row['prestation_nom'],
         'prix' => $row['prestation_prix'],
         'modules' => !empty($row['modules']) ? explode(',', $row['modules']) : [],
@@ -31,7 +28,6 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     ];
 }
 
-// Ferme la connexion à la base de données
 $conn = null;
 
 ?>

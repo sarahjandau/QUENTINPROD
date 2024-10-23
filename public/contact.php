@@ -10,24 +10,29 @@ if (isset($_POST['submit'])) {
 
     if (!empty($prestations) && !empty($name) && !empty($email) && !empty($message) && !empty($telephone)) {
         
-        // Vérification du numéro de téléphone
         if (!preg_match('/^\d{10}$/', $telephone)) {
             echo "Erreur : Le numéro de téléphone doit contenir exactement 10 chiffres.";
             exit; 
         }
 
-        $to = "sarah.jandau@gmail.com";
+        $to = "quentin.prod@outlook.fr";
         $subject = $prestations;
 
         $mail = new PHPMailer(true);
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = 'smtp-mail.outlook.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'sarah.jandau@gmail.com';
-            $mail->Password = 'xyka rgeu zgct aofm'; 
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
+            $mail->Username = 'quentin.prod@outlook.fr'; // Votre adresse e-mail
+            $mail->Password = 'vfvyncxcrqollsny'; // Votre nouveau mot de passe d'application
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // TLS
+            $mail->Port = 587; // Utilisez le port TLS
+            $mail->SMTPDebug = 2; // Niveau de débogage
+            $mail->Debugoutput = 'html'; // Format de sortie
+
+
+
+
 
             $mail->setFrom($email, $name);
             $mail->addAddress($to);
@@ -58,7 +63,7 @@ if (isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
     <title>Quentin Prod</title>
 </head>
 <body>

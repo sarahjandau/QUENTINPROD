@@ -29,19 +29,14 @@ ob_start();
 
     <div class="monParcours">
         <h2>MON PARCOURS</h2>
-        <p class="aProposText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. 
-            Vivamus venenatis arcu ac magna tincidunt, quis mattis mi dictum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. 
-            Vivamus venenatis arcu ac magna tincidunt, quis mattis mi dictumLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. 
-            Vivamus venenatis arcu ac magna tincidunt, quis mattis mi dictum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. 
-            Vivamus venenatis arcu ac magna tincidunt, quis mattis mi dictum.. 
+        <p class="aProposText">Depuis l'âge de 15 ans, j'ai plongé dans l'univers du mixage. Ce qui a commencé comme un simple hobby s'est rapidement transformé en une véritable passion, 
+            me conduisant à en faire mon métier. Avec 11 ans d'expérience à mon actif, dont 3 ans dans le domaine professionnel, j'ai eu l'opportunité d'animer 
+            une trentaine de mariages, ainsi que plusieurs baptêmes et anniversaires.
+            
             <br><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. Vivamus venenatis arcu ac magna tincidunt,
-            quis mattis mi dictum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. Vivamus venenatis arcu ac 
-            magna tincidunt, quis mattis mi dictum. 
+            Ma carrière est marquée par une écoute attentive des besoins de mes clients. Je suis flexible et m'adapte à chaque événement, veillant à ce que chaque moment soit mémorable. Mon engagement et ma passion pour la musique me permettent de créer une atmosphère unique, où chaque invité peut se laisser emporter par les rythmes et les mélodies.
+            Mon objectif est de faire de chaque événement une expérience inoubliable, riche en émotions et en convivialité.
             <br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum scelerisque. Vivamus venenatis arcu ac magna tincidunt, 
-            quis mattis mi dictum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id libero in odio bibendum 
-            scelerisque. Vivamus venenatis arcu ac magna tincidunt, quis mattis mi dictum.
         </p>
         <div class="buttonWrapper presta">
             <button class="aproposbtn"> <a href="public/contact.php">CONTACT MOI</a></button>

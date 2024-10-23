@@ -1,10 +1,10 @@
 <?php
 ob_start();
 require_once dirname(__DIR__) . '/entities/Auth.class.php';
-require_once dirname(__DIR__) . '/entities/Module.class.php'; // Assurez-vous que le chemin est correct
+require_once dirname(__DIR__) . '/entities/Module.class.php'; 
 
 Auth::verifyUser();
-$modules = Module::getAllModules(); // Récupère tous les modules
+$modules = Module::getAllModules(); 
 ?>
 <br>
 <br>
@@ -15,6 +15,7 @@ $modules = Module::getAllModules(); // Récupère tous les modules
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voir les modules</title>
+
 </head>
 <body>
     <br><br>

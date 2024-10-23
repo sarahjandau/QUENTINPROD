@@ -46,15 +46,15 @@ if(session_status() == PHP_SESSION_NONE){
             <ul>
                 <li><a href="../index.php">ACCUEIL</a></li>
                 <li><a href="../public/apropos.php">A PROPOS</a></li>
-                <li class="dropdown">
-                    <a href="#services" id="prestations">PRESTATIONS</a>
+                <li>
+                    <a href="#" id="prestations">PRESTATIONS</a>
                     <ul class="dropdownMenu">
                         <li><a href="../public/prestationMariage.php">Mariages</a></li>
                         <li><a href="../public/prestationBapteme.php">Baptêmes</a></li>
                         <li><a href="../public/prestationAnniversaire.php">Anniversaires</a></li>
                     </ul>
                 </li>
-                <li><a href="../public/contact.php">CONTACTEZ-NOUS</a></li> <br>
+                <li><a href="../public/contact.php">CONTACTEZ-NOUS</a></li>
                 <li><a href="../public/login.php">ESPACE ADMIN</a></li>
             </ul>
         </nav>
@@ -63,7 +63,7 @@ if(session_status() == PHP_SESSION_NONE){
                 <li><a href="../index.php">ACCUEIL</a></li>
                 <li><a href="../public/apropos.php">A PROPOS</a></li>
                 <li class="dropdown">
-                    <a href="#services">PRESTATIONS</a>
+                    <a href="#" id="prestations">PRESTATIONS</a>
                     <ul class="dropdownMenu">
                         <li><a href="../public/prestationMariage.php">Mariages</a></li>
                         <li><a href="../public/prestationBapteme.php">Baptêmes</a></li>
@@ -75,6 +75,7 @@ if(session_status() == PHP_SESSION_NONE){
             </ul>
         </nav>
     </div>
+
     <div class="hero">
         <?= $titre ?>
     </div>
