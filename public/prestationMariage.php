@@ -54,8 +54,9 @@ ob_start();
             Toujours dynamique et présent au micro, mon objectif est simple : vous offrir une expérience sur-mesure et garantir votre entière satisfaction.
         </p>
         <div class="buttonWrapper presta">
-            <button class="aproposbtn">CONTACTEZ-MOI</button>
+            <a href="../public/contact.php" class="aproposbtn">CONTACTEZ-MOI</a>
         </div>
+
     </div>
 </div>
 

@@ -15,16 +15,16 @@ if (isset($_POST['submit'])) {
             exit; 
         }
 
-        $to = "quentin.prod@outlook.fr";
+        $to = "gorgibusquentin@gmail.com";
         $subject = $prestations;
 
         $mail = new PHPMailer(true);
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp-mail.outlook.com';
+            $mail->Host = 'smtp.gmail.com';  // Correct
             $mail->SMTPAuth = true;
-            $mail->Username = 'quentin.prod@outlook.fr'; // Votre adresse e-mail
-            $mail->Password = 'vfvyncxcrqollsny'; // Votre nouveau mot de passe d'application
+            $mail->Username = 'gorgibusquentin@gmail.com'; // Votre adresse e-mail
+            $mail->Password = 'vzbv xz fy rubt bwii'; // Votre nouveau mot de passe d'application
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // TLS
             $mail->Port = 587; // Utilisez le port TLS
             $mail->SMTPDebug = 2; // Niveau de débogage

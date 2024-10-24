@@ -41,7 +41,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 2em;
-    z-index: 90; 
+    z-index: 1000; /* Augmenté pour le placer au-dessus de tout */
 }
 
 .svg-logo path {
@@ -98,18 +98,18 @@ nav ul li a {
     width: 100%;
     height: 100%;
     background-color: #9F3FE5; 
-    justify-content: flex-start; /* Change pour aligner le menu en haut */
+    justify-content: flex-start; 
     align-items: center; 
-    z-index: 100000; 
+    z-index: 1001; /* Assuré qu'il soit au-dessus du menu principal */
 }
 
 .mobileNav .dropdownMenu {
-    display: block; /* Masqué par défaut */
-    position: relative; /* Permet de placer le dropdown sous le lien "PRESTATIONS" */
+    display: block; 
+    position: relative; 
     background-color: transparent;
     padding: 1em;
     z-index: 30; 
-    width: 100%; /* Pour que le dropdown prenne toute la largeur */
+    width: 100%; 
 }
 
 .closeMenu {
@@ -127,13 +127,13 @@ nav ul li a {
     list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Change pour aligner à gauche */
+    align-items: flex-start; 
     padding-top: 7em;
     padding-left: 3em;
 }
 
 .mobileNav ul li {
-    position: relative; /* Nécessaire pour le dropdown */
+    position: relative; 
 }
 
 .mobileNav ul li a {
@@ -158,11 +158,6 @@ nav ul li a {
     display: none; 
 }
 
-/* Affichage du dropdown quand le lien est cliqué */
-.mobileNav ul li:hover .dropdownMenu {
-    display: block; 
-}
-
 .mobileNav.active {
     display: flex; 
 }
@@ -170,10 +165,10 @@ nav ul li a {
 .menu.scrolled {
     background-color: black; 
     transition: background-color 0.3s ease; 
+    z-index: 1000; /* Assuré qu'il ait le même z-index que le menu */
 }
 
 /* Page index  */
-
 
 .aPropos {
     display: flex;
@@ -185,16 +180,16 @@ nav ul li a {
     height: auto;
     margin: 0; 
     padding-top: 3em;
-    z-index: -1;
+    z-index: -1; /* Reste en dessous */
 }
 
-.photoQuentin{
+.photoQuentin {
     position: relative;
     width: 100vw;
     height: auto;
-
 }
-.presentation{
+
+.presentation {
     position: relative;
     width: 100vw;
     height: auto;
@@ -202,22 +197,18 @@ nav ul li a {
     overflow: hidden;
 }
 
-
-h2{
+h2 {
     font-family: Fira Sans Condensed, sans serif;
     font-weight: 800;
     padding-top: 2em;
     padding-bottom: 2em;
     text-align: center;
     line-height: 1.2;
-    
 }
 
-.quentinProd{
+.quentinProd {
     padding: 2em;
-
 }
-
 
 .aProposText {
     display: block;
@@ -234,23 +225,21 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 2em;
-    
+    padding-bottom: 2em;  
 }
 
-.aproposbtn{
+.aproposbtn {
     width: 150px;
     height: 60px;
     border: 2px solid white;
-    background-color: transparent;
+    background-color: transparent; 
     color: white;
     border-radius: 20px;
     transition: all 0.3s;
     cursor: pointer;
-    font-size: 1,2em;
+    font-size: 1.2em; 
     font-weight: 550;
-    font-family: Fira Sans, sans serif;
-
+    font-family: 'Fira Sans', sans-serif; 
 }
 
 /* CARDS INDEX */
@@ -285,17 +274,15 @@ h2{
     transform: translateY(-5px); 
 }
 
-
 .card h3 {
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 1.5em;
     padding: 1em;
 }
 
-.card h6{
+.card h6 {
     padding-left: 2em;
 }
-
 
 .prix {
     font-size: 1.4em;
@@ -310,13 +297,11 @@ h2{
     text-align: left;
 }
 
-
 .description ul {
     list-style-type: disc; 
     padding-left: 20px; 
     margin: 0;
 }
-
 
 button.voirTout {
     background-color: #9F3FE5; 
@@ -331,13 +316,12 @@ button.voirTout {
     align-self: center; 
 }
 
-
 button.voirTout:hover {
     background-color: #FF7B30; 
     color: white; 
 }
 
-.evenementSpecial{
+.evenementSpecial {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -367,19 +351,18 @@ button.voirTout:hover {
     padding: 20px;
     background-color: #1c1c1c;
     text-align: center;
-
 }
 
 .containerPresentation {
     margin-bottom: 30px;
 }
 
-
-.reseauxSociaux{
+.reseauxSociaux {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
+
 
 .reseauxSociaux a{
 

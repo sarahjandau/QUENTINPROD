@@ -51,8 +51,9 @@ $conn = null;
             <br> <br>Toujours dynamique et présent au micro, mon objectif est simple : vous offrir une expérience sur-mesure et garantir votre entière satisfaction.
         </p>
         <div class="buttonWrapper">
-            <button class="aproposbtn">EN SAVOIR PLUS</button>
+            <a href="../public/contact.php" class="aproposbtn">EN SAVOIR PLUS</a>
         </div>
+
     </div>
 </div>
 
@@ -94,8 +95,9 @@ $conn = null;
 <div class="evenementSpecial">
     <h2> UN EVENEMENT SPECIAL? <br> NOUS FAISONS DES DEVIS PERSONNALISES:</h2>
     <div class="buttonWrapper contact">
-        <button class="aproposbtn">CONTACTEZ-MOI</button>
+        <a href="../public/contact.php" class="aproposbtn">CONTACTEZ-MOI</a>
     </div>
+
 </div>
 
 
