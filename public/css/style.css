@@ -1,18 +1,18 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* template */
-body {
+body{
     font-family: 'Fira Sans', sans-serif;
     line-height: 1.6;
     background-color: #000;
     color: #fff;
 }
 
-.header {
+.header{
     position: relative;
     background-size: cover;
     background-position: center;
@@ -20,10 +20,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; 
-    z-index: 0; 
 }
 
-.header::before {
+.header::before{
     content: "";
     position: absolute;
     top: 0;
@@ -31,36 +30,36 @@ body {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7); 
-    z-index: 1; 
+    z-index: auto;
 }
 
-.menu {
+.menu{
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 2em;
-    z-index: 1000; /* Augmenté pour le placer au-dessus de tout */
+    z-index: 2;
 }
 
-.svg-logo path {
-    fill: white; /* Change to white */
+.svg-logo path{
+    fill: white; 
 }
 
-nav ul {
+nav ul{
     list-style: none;
     display: flex;
     gap: 1em;
 }
 
-nav ul li a {
+nav ul li a{
     text-decoration: none;
     color: white;
     font-weight: 700;
 }
 
-.hero {
+.hero{
     display: flex; 
     flex-direction: column;
     justify-content: center; 
@@ -75,11 +74,11 @@ nav ul li a {
     font-size: 2em;
     position: relative;
     margin-top: 7em; 
-    z-index: 1; 
+    z-index: 1;
 }
 
 /* menu burger */
-.menuToggle {
+.menuToggle{
     display: block;
     background: none;
     border: none;
@@ -88,7 +87,7 @@ nav ul li a {
     cursor: pointer;
 }
 
-.mobileNav {
+.mobileNav{
     display: none; 
     flex-direction: column;
     gap: 1em;
@@ -100,19 +99,18 @@ nav ul li a {
     background-color: #9F3FE5; 
     justify-content: flex-start; 
     align-items: center; 
-    z-index: 1001; /* Assuré qu'il soit au-dessus du menu principal */
+    z-index: 1001; 
 }
 
-.mobileNav .dropdownMenu {
+.mobileNav .dropdownMenu{
     display: block; 
     position: relative; 
     background-color: transparent;
     padding: 1em;
-    z-index: 30; 
     width: 100%; 
 }
 
-.closeMenu {
+.closeMenu{
     position: absolute;
     top: 10px;
     right: 10px;
@@ -123,7 +121,7 @@ nav ul li a {
     cursor: pointer;
 }
 
-.mobileNav ul {
+.mobileNav ul{
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -132,11 +130,11 @@ nav ul li a {
     padding-left: 3em;
 }
 
-.mobileNav ul li {
+.mobileNav ul li{
     position: relative; 
 }
 
-.mobileNav ul li a {
+.mobileNav ul li a{
     text-decoration: none;
     color: white;
     font-weight: 700;
@@ -144,33 +142,33 @@ nav ul li a {
     text-align: center; 
 }
 
-.dropdownMenu li {
+.dropdownMenu li{
     margin: 0;
 }
 
-.dropdownMenu a {
+.dropdownMenu a{
     color: white;
     text-decoration: none;
     font-weight: 400;
 }
 
-.desktopNav {
+.desktopNav{
     display: none; 
 }
 
-.mobileNav.active {
+.mobileNav.active{
     display: flex; 
 }
 
-.menu.scrolled {
+.menu.scrolled{
     background-color: black; 
     transition: background-color 0.3s ease; 
-    z-index: 1000; /* Assuré qu'il ait le même z-index que le menu */
+    z-index: 1000; 
 }
 
 /* Page index  */
 
-.aPropos {
+.aPropos{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,16 +178,15 @@ nav ul li a {
     height: auto;
     margin: 0; 
     padding-top: 3em;
-    z-index: -1; /* Reste en dessous */
 }
 
-.photoQuentin {
+.photoQuentin{
     position: relative;
     width: 100vw;
     height: auto;
 }
 
-.presentation {
+.presentation{
     position: relative;
     width: 100vw;
     height: auto;
@@ -197,7 +194,7 @@ nav ul li a {
     overflow: hidden;
 }
 
-h2 {
+h2{
     font-family: Fira Sans Condensed, sans serif;
     font-weight: 800;
     padding-top: 2em;
@@ -206,11 +203,11 @@ h2 {
     line-height: 1.2;
 }
 
-.quentinProd {
+.quentinProd{
     padding: 2em;
 }
 
-.aProposText {
+.aProposText{
     display: block;
     padding-left: 2em;
     padding-right: 2em;
@@ -221,18 +218,13 @@ h2 {
     line-height: 21.6px;
 }
 
-.buttonWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 2em;  
-}
 
-.aproposbtn {
+.aproposbtn{
     width: 150px;
     height: 60px;
     border: 2px solid white;
     background-color: transparent; 
+    position: relative;
     color: white;
     border-radius: 20px;
     transition: all 0.3s;
@@ -244,7 +236,7 @@ h2 {
 
 /* CARDS INDEX */
 
-.cardsContainer {
+.cardsContainer{
     display: flex;
     flex-direction: column; 
     gap: 20px; 
@@ -252,7 +244,7 @@ h2 {
     padding: 20px;
 }
 
-.card {
+.card{
     background-color: #13181C; 
     color: #fff; 
     border-radius: 10px; 
@@ -268,42 +260,42 @@ h2 {
     transition: transform 0.3s, box-shadow 0.3s; 
 }
 
-.card.hovered {
+.card.hovered{
     background: linear-gradient(to bottom, #9F3FE5, #FF7B30); 
     box-shadow: 0 0 50px rgba(0, 0, 0, 1); 
     transform: translateY(-5px); 
 }
 
-.card h3 {
+.card h3{
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 1.5em;
     padding: 1em;
 }
 
-.card h6 {
+.card h6{
     padding-left: 2em;
 }
 
-.prix {
+.prix{
     font-size: 1.4em;
     font-weight: bold;
     padding-left: 1em;
 }
 
-.description {
+.description{
     font-family: 'Fira Sans', sans-serif;
     font-size: 0.9em;
     padding: 1em;
     text-align: left;
 }
 
-.description ul {
+.description ul{
     list-style-type: disc; 
     padding-left: 20px; 
     margin: 0;
 }
 
-button.voirTout {
+button.voirTout{
     background-color: #9F3FE5; 
     color: white; 
     border: none; 
@@ -316,12 +308,12 @@ button.voirTout {
     align-self: center; 
 }
 
-button.voirTout:hover {
+button.voirTout:hover{
     background-color: #FF7B30; 
     color: white; 
 }
 
-.evenementSpecial {
+.evenementSpecial{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -335,16 +327,19 @@ button.voirTout:hover {
     padding: 2em; 
 }
 
-.buttonWrapper {
+.buttonWrapper{
     width: 100%; 
     display: flex;
     align-items: center;
     justify-content: center; 
+    position: relative; 
+    z-index: 20;
+
 }
 
 /* FOOTER */
 
-.footer {
+.footer{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -353,11 +348,11 @@ button.voirTout:hover {
     text-align: center;
 }
 
-.containerPresentation {
+.containerPresentation{
     margin-bottom: 30px;
 }
 
-.reseauxSociaux {
+.reseauxSociaux{
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -374,38 +369,38 @@ button.voirTout:hover {
     border-radius: 50%;
 }
 
-.facebook {
+.facebook{
     fill: #FF7B30;
 }
 
-.instagram {
+.instagram{
     fill: #FF7B30;
 }
 
-.tiktok {
+.tiktok{
     fill: #FF7B30; 
 }
 
-ul {
+ul{
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-ul li {
+ul li{
     margin-bottom: 8px;
 }
 
-ul li a {
+ul li a{
     color: #fff; 
     text-decoration: none; 
 }
 
-ul li a:hover {
+ul li a:hover{
     text-decoration: underline; 
 }
 
-ul li a:hover {
+ul li a:hover{
     text-decoration: underline;
 }
 
@@ -431,17 +426,17 @@ ul li a:hover {
     height: auto;
     margin: 0; 
     padding-top: 3em;
-    z-index: -1;
+    z-index: 1;
 
 }
 
-.buttonWrapper.presta {
+/* .buttonWrapper.presta {
     display: flex;
     align-items: center;
     justify-content: center; 
     width: 100%;
     padding-bottom: 2em;
-}
+} */
 
 .titrePresta{
     display: none;
@@ -480,11 +475,11 @@ ul li a:hover {
 
 /* ACCORDEON */
 
-.accordeon {
+.accordeon{
     margin: 20px;
 }
 
-.question {
+.question{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -528,7 +523,7 @@ ul li a:hover {
     transition: transform 0.3s;
 }
 
-.question.active .toggle-icon {
+.question.active .toggle-icon{
     transform: rotate(45deg); 
 }
 
@@ -644,7 +639,7 @@ ul li a:hover {
     padding: 20px;      
 }
 
-.experience, .evenements, .satisfaction {
+.experience, .evenements, .satisfaction{
     margin-bottom: 20px; 
     text-align: center; 
     font-family: "Fira Sans Condensed", sans-serif;
@@ -663,7 +658,7 @@ ul li a:hover {
 
 /* CONTACT */
 
-.containerContact {
+.containerContact{
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #ffffff; 
@@ -693,7 +688,7 @@ select {
     font-family: 'Fira Sans', sans-serif; 
 }
 
-label {
+label{
     margin-right: 0;
     margin-left: 0;
     width: 100%;
@@ -718,7 +713,7 @@ button[type=submit]:hover{
 
 /* TEMPLATE CRUD */
 
-.containerCrud {
+.containerCrud{
     display: flex;
     flex-direction: column; 
     height: 100vh;
@@ -796,7 +791,7 @@ button[type=submit]:hover{
 
 /* LOGIN */
 
-.containerLogin {
+.containerLogin{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -1069,13 +1064,6 @@ table{
         width: 100%; 
     }
 
-    .buttonWrapper .presta{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
 
     .titrePresta{
         display: flex;

@@ -57,8 +57,8 @@ $conn = null;
             Professionnalisme, réactivité et flexibilité sont au cœur de mon service. Mon approche personnalisée me permet de m’adapter à vos envies, que ce soit pour le choix des styles musicaux ou pour l’intégration d’animations comme les jeux. <br> <br>
             Toujours dynamique et présent au micro, mon objectif est simple : vous offrir une expérience sur-mesure et garantir votre entière satisfaction.
         </p>
-        <div class="buttonWrapper presta">
-            <button class="aproposbtn">CONTACTEZ-MOI</button>
+        <div class="buttonWrapper contact">
+            <a href="../public/contact.php" class="aproposbtn">CONTACTEZ-MOI</a>
         </div>
     </div>
 </div>

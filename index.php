@@ -80,7 +80,8 @@ $conn = null;
                         <?php endforeach; ?>
                     </ul>
                 </div>
-                <a href="public/prestation.php?id=<?php echo htmlspecialchars($prest['id_prestation']); ?>"> 
+                <!-- <a href="public/prestationMariage.php<?php echo htmlspecialchars($prest['id_prestation']); ?>">  -->
+                <a href="public/prestationMariage.php">
                     <button class="voirTout">VOIR TOUT</button>
                 </a>
             </div>

@@ -38,8 +38,8 @@ ob_start();
             Mon objectif est de faire de chaque événement une expérience inoubliable, riche en émotions et en convivialité.
             <br>
         </p>
-        <div class="buttonWrapper presta">
-            <button class="aproposbtn"> <a href="public/contact.php">CONTACT MOI</a></button>
+        <div class="buttonWrapper contact">
+            <button class="aproposbtn"> <a href="/public/contact.php">CONTACT MOI</a></button>
         </div>
 
     </div>
