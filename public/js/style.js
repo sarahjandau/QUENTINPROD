@@ -74,13 +74,33 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
     // NOMBRE CARACTERE MDP
     document.querySelector('form').addEventListener('submit', function(event) {
         const password = document.getElementById('password').value;
         
-        if (password.length < 6 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+        if (password.length < 6 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)){
             event.preventDefault();
             alert("Le mot de passe doit contenir plus de 5 caractères, une majuscule et un chiffre.");
         }
     });
+
+    
+    // COOKIES
+
+    const modal = document.getElementById("cookieModal");
+    const acceptButton = document.getElementById("acceptCookies");
+
+    if (!localStorage.getItem("cookiesAccepted")){
+        modal.style.display = "flex";
+    }
+
+    acceptButton.addEventListener("click", function(){
+    localStorage.setItem("cookiesAccepted", "true");
+    modal.style.display = "none";
+    });
+
 });
+
+  
+
