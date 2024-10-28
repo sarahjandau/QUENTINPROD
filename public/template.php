@@ -88,10 +88,7 @@ if(session_status() == PHP_SESSION_NONE){
 
 
 <footer>
-    <div class="API">
-
-    </div>
-
+    
     
     <div class="footer"> 
         <div class="containerPresentation">
@@ -130,7 +127,7 @@ if(session_status() == PHP_SESSION_NONE){
             <ul>
                 <li><a href="../public/cookies.php">Cookies</a></li>
                 <li><a href="../public/politiqueConfidentialite.php">Politique de confidentialité</a></li>
-                <li><a href="../public/mentionslegales.php">Mentions légales</a></li>
+                <li><a href="../public/mentionlegales.php">Mentions légales</a></li>
             </ul>
         </div>
     </div>

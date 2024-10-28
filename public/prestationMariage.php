@@ -18,7 +18,7 @@ $sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_pr
 $result = $conn->query($sql);
 
 $prestations = [];
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $result->fetch(PDO::FETCH_ASSOC)){
     $prestations[] = [
         'id_prestation' => $row['id_prestation'],
         'nom' => $row['prestation_nom'],
@@ -41,7 +41,7 @@ ob_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestations Mariage</title>
+    <title>Quentin Prod - Prestations Mariage</title>
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
@@ -100,13 +100,22 @@ ob_start();
 </div>
 
 <div class="servicecontainer">
-    <img src="images/materielDJ2.jpeg" alt="Matériel DJ" class="photomateriel">
+    <img src="images/materielDJ2" alt="" class="photomateriel">
     <div class="servicequalitecontainer">
         <h2>UN SERVICE DE QUALITÉ</h2> <br>
         <div class="sonorisation">
-            <p>Profitez d'une sonorisation sans limite d'heure et d'un éclairage haut de gamme...</p>
+            <p>Profitez d'une sonorisation sans limite d'heure et d'un éclairage haut de gamme :</p><br>
             <h4>Éclairage et effets visuels</h4>
-            <p>4 lyres sur totems avec habillage lycra...</p>
+            <p>4 lyres sur totems avec habillage lycra pour un rendu moderne et élégant.</p><br>
+                
+            <h4>Effets lumineux</h4>
+            <p>La Gig Bar 2 combine stroboscopes, lasers et autres effets lumineux pour animer la piste. Une machine à fumée intensifie l’ambiance en soulignant les faisceaux.</p> <br>
+                
+            <h4>Effets spéciaux</h4>
+            <p>4 jets de scène et fumée lourde pour un moment magique, idéal pour l’ouverture de bal.</p><br>
+                
+            <h4>Événement DJ personnalisable</h4>
+            <p>Habillage en lycra blanc ou noir selon votre thème. Un setup professionnel pour une soirée mémorable !</p>
         </div>
     </div>
 </div>

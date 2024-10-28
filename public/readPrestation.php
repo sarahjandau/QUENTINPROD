@@ -1,10 +1,10 @@
 <?php
 ob_start();
 require_once dirname(__DIR__) . '/entities/Auth.class.php';
-require_once dirname(__DIR__) . '/entities/Prestation.class.php'; // Assurez-vous que le chemin est correct
+require_once dirname(__DIR__) . '/entities/Prestation.class.php'; 
 
-Auth::verifyUser(); // Vérifie que l'utilisateur est connecté
-$prestations = Prestation::getAllPrestations(); // Récupère toutes les prestations
+Auth::verifyUser(); 
+$prestations = Prestation::getAllPrestations(); 
 ?>
 <br>
 <br>
@@ -25,8 +25,8 @@ $prestations = Prestation::getAllPrestations(); // Récupère toutes les prestat
             <th>ID</th>
             <th>Nom</th>
             <th>Prix</th>
-            <th>Modules</th> <!-- Nouvelle colonne pour les modules -->
-            <th>Extras</th>  <!-- Nouvelle colonne pour les extras -->
+            <th>Modules</th> 
+            <th>Extras</th>  
             <th>Actions</th>
         </tr>
         <?php foreach ($prestations as $prestation): ?>
@@ -34,8 +34,8 @@ $prestations = Prestation::getAllPrestations(); // Récupère toutes les prestat
             <td><?php echo htmlspecialchars($prestation['id_prestation']); ?></td>
             <td><?php echo htmlspecialchars($prestation['nom']); ?></td>
             <td><?php echo htmlspecialchars($prestation['prix']); ?></td>
-            <td><?php echo htmlspecialchars($prestation['modules'] ?? 'Aucun'); ?></td> <!-- Affiche les modules -->
-            <td><?php echo htmlspecialchars($prestation['extras'] ?? 'Aucun'); ?></td>  <!-- Affiche les extras -->
+            <td><?php echo htmlspecialchars($prestation['modules'] ?? 'Aucun'); ?></td>
+            <td><?php echo htmlspecialchars($prestation['extras'] ?? 'Aucun'); ?></td>  
             <td>
                 <a href="../public/updatePrestation.php?id_prestation=<?php echo htmlspecialchars($prestation['id_prestation']); ?>">✏️</a>
                 <a href="../public/deletePrestation.php?id=<?php echo htmlspecialchars($prestation['id_prestation']); ?>">🗑️</a>

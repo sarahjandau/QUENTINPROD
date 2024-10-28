@@ -1,19 +1,16 @@
 <?php
 ob_start();
 require_once dirname(__DIR__) . '/entities/Auth.class.php';
-require_once dirname(__DIR__) . '/entities/Module.class.php'; // Assurez-vous que le chemin est correct
+require_once dirname(__DIR__) . '/entities/Module.class.php'; 
 
-// Vérifie que l'utilisateur est connecté
 Auth::verifyUser();
 
-// Supprimer un module si l'ID est fourni
 if (isset($_POST['id_module'])) {
     $id_module = $_POST['id_module']; 
     $message = Module::deleteModule($id_module);
     echo $message;
 }
 
-// Récupération de tous les modules
 $modules = Module::getAllModules();
 ?>
 
@@ -32,5 +29,5 @@ $modules = Module::getAllModules();
 <?php
 $content = ob_get_clean();
 $titre = "Supprimer un module";
-require "../public/templatecrud.php"; // Assurez-vous que le chemin est correct
+require "../public/templatecrud.php"; 
 ?>

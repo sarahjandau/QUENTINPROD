@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/dbConnect/MyDbConnection.php';
 
-class Comprend {
+class Comprend{
     
     public static function addModuleToPrestation($id_prestation, $id_module) {
         $pdo = MyDbConnection::getInstance()->getPdo();

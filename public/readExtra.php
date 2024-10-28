@@ -1,10 +1,10 @@
 <?php
 ob_start();
 require_once dirname(__DIR__) . '/entities/Auth.class.php';
-require_once dirname(__DIR__) . '/entities/Extra.class.php'; // Assurez-vous que le chemin est correct
+require_once dirname(__DIR__) . '/entities/Extra.class.php'; 
 
 Auth::verifyUser();
-$extras = Extra::getAllExtras(); // Récupère tous les extras
+$extras = Extra::getAllExtras(); 
 ?>
 <br>
 <br>
@@ -31,7 +31,7 @@ $extras = Extra::getAllExtras(); // Récupère tous les extras
         <tr>
             <td><?php echo htmlspecialchars($extra['id_extra']); ?></td>
             <td><?php echo htmlspecialchars($extra['nom']); ?></td>
-            <td><?php echo htmlspecialchars($extra['prix']); ?> €</td> <!-- Affiche le prix avec le symbole euro -->
+            <td><?php echo htmlspecialchars($extra['prix']); ?> €</td> 
             <td>
                 <a href="../public/updateExtra.php?id_extra=<?php echo htmlspecialchars($extra['id_extra']); ?>">✏️</a>
                 <a href="../public/deleteExtra.php?id=<?php echo htmlspecialchars($extra['id_extra']); ?>">🗑️</a>

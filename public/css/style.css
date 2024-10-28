@@ -430,22 +430,12 @@ ul li a:hover{
 
 }
 
-/* .buttonWrapper.presta {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    width: 100%;
-    padding-bottom: 2em;
-} */
-
 .titrePresta{
     display: none;
     background: linear-gradient(90deg, #9F3FE5, #FF7B30);
     width: auto;
     height: 150px;
 }
-
-
   
 .servicecontainer{
     display: flex;
@@ -885,6 +875,14 @@ table{
     width: auto;
 }
 
+.mentionslegales {
+    display: block;
+    width: auto;
+    padding: 20%;
+    padding-top: 2%;
+}
+
+
 
 @media (min-width: 768px){
 
@@ -990,20 +988,20 @@ table{
     
     }
 
-    .aproposbtn:hover {
+    .aproposbtn:hover{
         background: linear-gradient(90deg, #9F3FE5, #FF7B30);
         color: white;
         font-size: 1.1em;
     }
 
-    .cardsContainer {
+    .cardsContainer{
         flex-direction: row; 
         flex-wrap: wrap; 
         justify-content: center;
         padding-top: 4em;
         }
 
-    .card {
+    .card{
         max-width: 300px; 
         height: auto; 
         padding: 20px; 
@@ -1053,14 +1051,14 @@ table{
         margin: 0 20px; 
     }
 
-    .informationPresta {
+    .informationPresta{
         background-color: transparent; 
         width: 40%; 
         margin: 0 auto;
         text-align: center; 
     }
 
-    .presentationPresta {
+    .presentationPresta{
         width: 100%; 
     }
 

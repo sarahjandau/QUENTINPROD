@@ -1,12 +1,12 @@
 <?php
 ob_start();
-require_once '../dbConnect/dbConnect.php'; // Assurez-vous que ce chemin est correct
+require_once '../dbConnect/dbConnect.php'; 
 
-// Connexion à la base de données
+
 $db = MySqlConnect::getInstance();
 $conn = $db->getPdo();
 
-// Requête pour récupérer uniquement la prestation "Anniversaire"
+
 $sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_prix, 
         GROUP_CONCAT(DISTINCT m.nom) AS modules, 
         GROUP_CONCAT(DISTINCT e.nom) AS extras 
@@ -20,7 +20,7 @@ $sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_pr
 
 $result = $conn->query($sql);
 
-// Vérifie si des résultats sont retournés
+
 $prestations = [];
 if ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     $prestations[] = [
@@ -32,7 +32,7 @@ if ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     ];
 }
 
-// Ferme la connexion à la base de données
+
 $conn = null;
 
 ?>
@@ -69,7 +69,7 @@ $conn = null;
 
 <div class="prestationCardContainer">
     <?php if (!empty($prestations)): ?>
-        <?php $prest = $prestations[0]; // On suppose qu'il n'y a qu'une seule prestation "Anniversaire" ?>
+        <?php $prest = $prestations[0];  ?>
         <div class="cards">
             <h3><?php echo htmlspecialchars($prest['nom']); ?></h3>
             <p class="price">A partir de : <strong><?php echo htmlspecialchars($prest['prix']); ?>€</strong></p>

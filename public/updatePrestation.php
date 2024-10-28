@@ -10,7 +10,7 @@ Auth::verifyUser();
 
 $prestation = null;
 
-if (isset($_GET['id_prestation'])) {
+if (isset($_GET['id_prestation'])){
     $id_prestation = $_GET['id_prestation'];
 
     $prestation = Prestation::getPrestationById($id_prestation);
@@ -24,7 +24,7 @@ if (isset($_GET['id_prestation'])) {
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     if (isset($_POST['id_prestation'], $_POST['nom'], $_POST['prix'], $_POST['modules'])) {
         $id_prestation = $_POST['id_prestation'];
@@ -44,22 +44,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Comprend::addModuleToPrestation($id_prestation, $id_module);
         }
 
-        foreach ($extras as $id_extra) {
+        foreach ($extras as $id_extra){
             Contient::addExtraToPrestation($id_prestation, $id_extra);
         }
 
-    } else {
+    } else{
         echo "Tous les champs doivent être remplis.";
     }
 } else {
     $modules = Comprend::getModulesByPrestationId($id_prestation);
     $extras = Contient::getExtrasByPrestationId($id_prestation);
 
-    if (!is_array($modules)) {
+    if (!is_array($modules)){
         $modules = [];
     }
 
-    if (!is_array($extras)) {
+    if (!is_array($extras)){
         $extras = []; 
     }
 }

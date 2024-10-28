@@ -7,31 +7,27 @@ Auth::verifyUser();
 
 $extra = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Vérifie si les champs requis sont présents
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if (isset($_POST['id_extra'], $_POST['nom'], $_POST['prix'])) {
         $id_extra = $_POST['id_extra'];
         $nom = $_POST['nom'];
         $prix = $_POST['prix'];
 
-        // Mise à jour de l'extra
         $message = Extra::updateExtra($id_extra, $nom, $prix);
         echo $message;
 
-        // Récupère les informations de l'extra après la mise à jour
         $extra = Extra::getExtraById($id_extra);
     } else {
         echo "Tous les champs doivent être remplis.";
     }
-} elseif (isset($_GET['id_extra'])) {
-    // Récupère l'extra à partir de l'ID
+} elseif (isset($_GET['id_extra'])){
     $extra = Extra::getExtraById($_GET['id_extra']);
 
-    if (!$extra) {
+    if (!$extra){
         echo "Extra non trouvé.";
         exit();
     }
-} else {
+} else{
     echo "Aucun ID d'extra fourni.";
     exit();
 }

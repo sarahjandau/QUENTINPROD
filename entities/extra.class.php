@@ -1,21 +1,21 @@
 <?php
 require_once dirname(__DIR__) . '/dbConnect/MyDbConnection.php';
 
-class Extra {
-    public static function createExtra($nom, $prix) {
+class Extra{
+    public static function createExtra($nom, $prix){
         $pdo = MyDbConnection::getInstance()->getPdo();
 
-        try {
+        try{
             $stmt = $pdo->prepare('INSERT INTO extra (nom, prix) VALUES (?, ?)');
             $stmt->execute([$nom, $prix]);
 
             return "Extra ajouté avec succès.";
-        } catch (PDOException $e) {
+        } catch (PDOException $e){
             return "Erreur : " . $e->getMessage();
         }
     }
 
-    public static function deleteExtra($id_extra) {
+    public static function deleteExtra($id_extra){
         $pdo = MyDbConnection::getInstance()->getPdo();
 
         try {
@@ -27,7 +27,7 @@ class Extra {
         }
     }
 
-    public static function updateExtra($id_extra, $nom, $prix) {
+    public static function updateExtra($id_extra, $nom, $prix){
         $pdo = MyDbConnection::getInstance()->getPdo();
 
         try {
@@ -40,14 +40,14 @@ class Extra {
         }
     }
 
-    public static function getExtraById($id) {
+    public static function getExtraById($id){
         $pdo = MyDbConnection::getInstance()->getPdo();
         $stmt = $pdo->prepare('SELECT * FROM extra WHERE id_extra = ?');
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
 
-    public static function getAllExtras() {
+    public static function getAllExtras(){
         $pdo = MyDbConnection::getInstance()->getPdo();
         $stmt = $pdo->prepare('SELECT * FROM extra');
         $stmt->execute();

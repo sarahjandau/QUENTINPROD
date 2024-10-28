@@ -1,33 +1,28 @@
 <?php
-// Inclure les classes nécessaires
 require_once dirname(__DIR__) . '/entities/Module.class.php';
 require_once dirname(__DIR__) . '/entities/Extra.class.php';
 require_once dirname(__DIR__) . '/entities/Prestation.class.php';
-require_once dirname(__DIR__) . '/entities/Comprend.class.php'; // Pour associer les modules
-require_once dirname(__DIR__) . '/entities/Contient.class.php';  // Pour associer les extras
+require_once dirname(__DIR__) . '/entities/Comprend.class.php'; 
+require_once dirname(__DIR__) . '/entities/Contient.class.php';  
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Vérifiez si le nom et le prix sont fournis, et si au moins un module est coché
+   
     if (isset($_POST['nom'], $_POST['prix'], $_POST['modules']) && !empty($_POST['modules'])) {
         $nom = $_POST['nom'];
         $prix = $_POST['prix'];
         $modules = $_POST['modules']; 
         $extras = $_POST['extras'] ?? []; 
 
-        // Appel à la méthode pour créer la prestation
         $message = Prestation::createPrestation($nom, $prix);
         echo $message;
 
-        // Récupérer l'ID de la prestation créée
         $id_prestation = MyDbConnection::getInstance()->getPdo()->lastInsertId();
 
-        // Associer les modules à la prestation
-        foreach ($modules as $id_module) {
+        foreach ($modules as $id_module){
             Comprend::addModuleToPrestation($id_prestation, $id_module);
         }
 
-        // Associer les extras (s'ils existent) à la prestation
-        foreach ($extras as $id_extra) {
+        foreach ($extras as $id_extra){
             Contient::addExtraToPrestation($id_prestation, $id_extra);
         }
 
@@ -37,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Récupérer tous les modules et extras
 $modules = Module::getAllModules();
 $extras = Extra::getAllExtras();
 ?>
@@ -49,15 +43,15 @@ $extras = Extra::getAllExtras();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter une Prestation</title>
     <script>
-        function validateForm() {
-            // Vérifie si au moins un module est coché
+        function validateForm(){
+            
             const moduleCheckboxes = document.querySelectorAll('input[name="modules[]"]');
             const isChecked = Array.from(moduleCheckboxes).some(checkbox => checkbox.checked);
             if (!isChecked) {
                 alert("Veuillez cocher au moins un module.");
-                return false; // Bloque l'envoi du formulaire
+                return false; 
             }
-            return true; // Autorise l'envoi du formulaire
+            return true; 
         }
     </script>
 </head>

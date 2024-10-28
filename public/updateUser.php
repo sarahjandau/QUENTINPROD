@@ -3,35 +3,29 @@ ob_start();
 require_once dirname(__DIR__) . '/entities/Auth.class.php';
 require_once dirname(__DIR__) . '/entities/User.class.php';
 
-// Vérifie que l'utilisateur est connecté
 Auth::verifyUser();
 
 $user = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Vérifie que les champs nécessaires sont remplis
-    if (isset($_POST['id_user'], $_POST['nom'], $_POST['prenom'], $_POST['email'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if (isset($_POST['id_user'], $_POST['nom'], $_POST['prenom'], $_POST['email'])){
         $id_user = $_POST['id_user'];
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $email = $_POST['email'];
-        $password = $_POST['password'] ?? null; // Prend le mot de passe s'il est défini
+        $password = $_POST['password'] ?? null; 
 
-        // Mise à jour de l'utilisateur
         $message = User::updateUser($id_user, $nom, $prenom, $email, $password);
         echo $message;
 
-        // Récupération des informations de l'utilisateur après mise à jour
         $user = User::getUserById($id_user);
     } else {
         echo "Tous les champs doivent être remplis.";
     }
-} elseif (isset($_GET['id_user'])) {
-    // Récupère l'utilisateur à partir de l'ID
+} elseif (isset($_GET['id_user'])){
     $user = User::getUserById($_GET['id_user']);
 
-    // Vérifie si l'utilisateur existe
-    if (!$user) {
+    if (!$user){
         echo "Utilisateur non trouvé.";
         exit();
     }

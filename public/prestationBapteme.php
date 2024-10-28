@@ -19,7 +19,7 @@ $sql = "SELECT p.id_prestation, p.nom AS prestation_nom, p.prix AS prestation_pr
 $result = $conn->query($sql);
 
 $prestations = [];
-if ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+if ($row = $result->fetch(PDO::FETCH_ASSOC)){
     $prestations[] = [
         'id_prestation' => $row['id_prestation'],
         'nom' => $row['prestation_nom'],

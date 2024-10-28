@@ -1,26 +1,26 @@
 <?php
 require_once dirname(__DIR__) . '/dbConnect/MyDbConnection.php';
 
-class Prestation {
+class Prestation{
     
-    public static function createPrestation($nom, $prix) {
+    public static function createPrestation($nom, $prix){
         $pdo = MyDbConnection::getInstance()->getPdo();
     
-        try {
+        try{
             $stmt = $pdo->prepare('INSERT INTO prestation (nom, prix) VALUES (?, ?)');
             $stmt->execute([$nom, $prix]);
     
             return "Prestation ajoutée avec succès.";
-        } catch (PDOException $e) {
+        } catch (PDOException $e){
             return "Erreur : " . $e->getMessage();
         }
     }
     
 
-    public static function deletePrestation($id_prestation) {
+    public static function deletePrestation($id_prestation){
         $pdo = MyDbConnection::getInstance()->getPdo();
 
-        try {
+        try{
             $stmt = $pdo->prepare('DELETE FROM prestation WHERE id_prestation = ?');
             $stmt->execute([$id_prestation]);
             return "Prestation supprimée avec succès.";
@@ -29,7 +29,7 @@ class Prestation {
         }
     }
 
-    public static function updatePrestation($id_prestation, $nom, $prix) {
+    public static function updatePrestation($id_prestation, $nom, $prix){
         $pdo = MyDbConnection::getInstance()->getPdo();
 
         try {
@@ -42,7 +42,7 @@ class Prestation {
         }
     }
 
-    public static function getPrestationById($id_prestation) {
+    public static function getPrestationById($id_prestation){
         $pdo = MyDbConnection::getInstance()->getPdo();
         $stmt = $pdo->prepare('SELECT * FROM prestation WHERE id_prestation = ?');
         $stmt->execute([$id_prestation]);
@@ -50,7 +50,7 @@ class Prestation {
     }    
     
 
-    public static function getAllPrestations() {
+    public static function getAllPrestations(){
         $pdo = MyDbConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare('

@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    // Changer le fond du menu lors du défilement
+    // CHANGER FOND MENU SCROLLED
     window.addEventListener('scroll', function() {
         if (window.scrollY > 0) {
-            menu.classList.add('scrolled'); // Ajoute une classe 'scrolled'
+            menu.classList.add('scrolled'); 
         } else {
-            menu.classList.remove('scrolled'); // Retire la classe 'scrolled'
+            menu.classList.remove('scrolled'); 
         }
     });
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Fonction de validation du formulaire
+    // VALIDATION FORMULAIRE
     function validateForm() {
         const moduleCheckboxes = document.querySelectorAll('input[name="modules[]"]');
         const isChecked = Array.from(moduleCheckboxes).some(checkbox => checkbox.checked);
@@ -53,15 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // ACCORDEON MARIAGE
 
     document.querySelectorAll('.question').forEach(function(questionDiv) {
-        // Ajoute un événement 'click' à chaque div de question
         questionDiv.addEventListener('click', function() {
-            // Sélectionne la div de réponse suivante
             const reponseDiv = questionDiv.nextElementSibling;
     
-            // Bascule l'état actif de cette réponse
             reponseDiv.classList.toggle("active");
     
-            // Modifier l'icône (plus ou moins)
             const toggleIcon = questionDiv.querySelector(".toggle-icon");
             if (reponseDiv.classList.contains("active")) {
                 toggleIcon.textContent = "-";
@@ -69,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggleIcon.textContent = "+";
             }
     
-            // Ferme les autres réponses si elles sont ouvertes
             document.querySelectorAll(".reponse").forEach(function(otherReponse) {
                 if (otherReponse !== reponseDiv && otherReponse.classList.contains("active")) {
                     otherReponse.classList.remove("active");
@@ -78,5 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+    });
+    // NOMBRE CARACTERE MDP
+    document.querySelector('form').addEventListener('submit', function(event) {
+        const password = document.getElementById('password').value;
+        
+        if (password.length < 6 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+            event.preventDefault();
+            alert("Le mot de passe doit contenir plus de 5 caractères, une majuscule et un chiffre.");
+        }
     });
 });

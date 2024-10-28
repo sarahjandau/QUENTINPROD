@@ -28,7 +28,7 @@ abstract class DbConnect {
 
     public static function getInstance() {
         if (self::$instance === null) {
-            self::$instance = new static(); // static permet d'utiliser la classe enfant
+            self::$instance = new static(); 
         }
         return self::$instance;
     }
@@ -38,10 +38,9 @@ abstract class DbConnect {
     }
 }
 
-// Classe pour la connexion MySQL
 class MySqlConnect extends DbConnect {
     public function __construct() {
-        parent::__construct(); // Appelle le constructeur de DbConnect
+        parent::__construct(); 
     }
 }
 ?>

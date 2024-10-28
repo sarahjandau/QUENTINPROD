@@ -9,26 +9,30 @@ if (isset($_POST['mail'], $_POST['password'])) {
     $email = $_POST['mail']; 
     $password = $_POST['password'];
 
-    $pdo = MyDbConnection::getInstance()->getPdo();
+    if (strlen($password) < 6 || !preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password)) {
+        $error = "Le mot de passe doit contenir plus de 5 caractères, une majuscule et un chiffre.";
+    } else {
+        $pdo = MyDbConnection::getInstance()->getPdo();
 
-    try {
-        $stmt = $pdo->prepare('SELECT id_user, password FROM user WHERE mail = ?');
-        $stmt->execute([$email]); 
-        $user = $stmt->fetch();
+        try {
+            $stmt = $pdo->prepare('SELECT id_user, password FROM user WHERE mail = ?');
+            $stmt->execute([$email]); 
+            $user = $stmt->fetch();
 
-        
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['id_user'] = $user['id_user'];
-            header('Location: ../public/accueilCrud.php');
-            exit();
-        } else {
-            $error = "Email ou mot de passe incorrect.";
+            if ($user && password_verify($password, $user['password'])) {
+                $_SESSION['id_user'] = $user['id_user'];
+                header('Location: ../public/accueilCrud.php');
+                exit();
+            } else {
+                $error = "Email ou mot de passe incorrect.";
+            }
+        } catch (PDOException $e) {
+            $error = "Erreur lors de la connexion : " . $e->getMessage();
         }
-    } catch (PDOException $e) {
-        $error = "Erreur lors de la connexion : " . $e->getMessage();
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

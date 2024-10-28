@@ -6,7 +6,7 @@ require_once dirname(__DIR__) . '/entities/Extra.class.php';
 Auth::verifyUser();
 
 
-if (isset($_POST['id_extra'])) {
+if (isset($_POST['id_extra'])){
     $id_extra = $_POST['id_extra']; 
     $message = Extra::deleteExtra($id_extra);
     echo $message;

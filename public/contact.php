@@ -5,10 +5,10 @@ require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])){
     extract($_POST);
 
-    if (!empty($prestations) && !empty($name) && !empty($email) && !empty($message) && !empty($telephone)) {
+    if (!empty($prestations) && !empty($name) && !empty($email) && !empty($message) && !empty($telephone)){
         
         if (!preg_match('/^\d{10}$/', $telephone)) {
             echo "Erreur : Le numéro de téléphone doit contenir exactement 10 chiffres.";
@@ -19,19 +19,16 @@ if (isset($_POST['submit'])) {
         $subject = $prestations;
 
         $mail = new PHPMailer(true);
-        try {
+        try{
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';  // Correct
+            $mail->Host = 'smtp.gmail.com';  
             $mail->SMTPAuth = true;
-            $mail->Username = 'gorgibusquentin@gmail.com'; // Votre adresse e-mail
-            $mail->Password = 'vzbv xz fy rubt bwii'; // Votre nouveau mot de passe d'application
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // TLS
-            $mail->Port = 587; // Utilisez le port TLS
-            $mail->SMTPDebug = 2; // Niveau de débogage
-            $mail->Debugoutput = 'html'; // Format de sortie
-
-
-
+            $mail->Username = 'gorgibusquentin@gmail.com'; 
+            $mail->Password = 'vzbv xz fy rubt bwii';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587; 
+            $mail->SMTPDebug = 2;
+            $mail->Debugoutput = 'html'; 
 
 
             $mail->setFrom($email, $name);
@@ -45,10 +42,10 @@ if (isset($_POST['submit'])) {
             
             header('Location: contact.php?success=1');
             exit(); 
-        } catch (Exception $e) {
+        } catch (Exception $e){
             echo "Erreur : {$mail->ErrorInfo}";
         }
-    } else {
+    } else{
         echo "Veuillez remplir tous les champs.";
     }
 }

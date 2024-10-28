@@ -7,9 +7,9 @@ Auth::verifyUser();
 
 $module = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-    if (isset($_POST['id_module'], $_POST['nom'])) {
+    if (isset($_POST['id_module'], $_POST['nom'])){
         $id_module = $_POST['id_module'];
         $nom = $_POST['nom'];
 
@@ -20,8 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "Tous les champs doivent être remplis.";
     }
-} elseif (isset($_GET['id_module'])) {
-    // Récupère le module à partir de l'ID
+} elseif (isset($_GET['id_module'])){
     $module = Module::getModuleById($_GET['id_module']);
 
     if (!$module) {

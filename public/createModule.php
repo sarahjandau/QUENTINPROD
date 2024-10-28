@@ -1,12 +1,12 @@
 <?php
 require_once dirname(__DIR__) . '/entities/Module.class.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['nom'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if (isset($_POST['nom'])){
         $nom = $_POST['nom'];
         $message = Module::createModule($nom);
         echo $message;
-    } else {
+    } else{
         echo "Le nom du module doit être fourni.";
     }
 }
