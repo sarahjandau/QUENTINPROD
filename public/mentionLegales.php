@@ -20,7 +20,7 @@ ob_start();
             Nom commercial : MONSIEUR QUENTIN GORGIBUS
             Statut juridique : Entrepreneur Individuel - Affaire personnelle commerçant
             Adresse : 16 RUE CHANZY, 59240 DUNKERQUE
-            Numéro de téléphone : [À compléter]
+            Numéro de téléphone : 
             Numéro SIREN : 917 759 904
             Numéro SIRET : 917 759 904 00019
             Numéro TVA Intracommunautaire : FR05917759904

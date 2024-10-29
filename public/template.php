@@ -88,6 +88,36 @@ if(session_status() == PHP_SESSION_NONE){
 
 
 <footer>
+    <h3>Ils nous recommande !</h1>
+
+    <script>
+        const placeId = '0x25dd7d79d42de9ab:0xa0c73fcd79879d48'; 
+        const apiKey = 'AIzaSyCbP622jFz7xxdo9L4ipxrltgWjOyo0PWw'; 
+
+        fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                const avisDiv = document.getElementById('avis');
+                const reviews = data.result.reviews;
+
+                if (reviews) {
+                    reviews.forEach(review => {
+                        const reviewElement = document.createElement('div');
+                        reviewElement.innerHTML = `<h3>${review.author_name}</h3><p>${review.text}</p><p>Note: ${review.rating}</p>`;
+                        avisDiv.appendChild(reviewElement);
+                    });
+                } else {
+                    avisDiv.innerHTML = '<p>Aucun avis disponible.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+            });
+
+        
+
+
+    </script>
     
     
     <div class="footer"> 

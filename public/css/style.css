@@ -882,45 +882,104 @@ table{
     padding-top: 2%;
 }
 
-/* Style par défaut (mobile) */
+/* COOKIES */
 
-/* Style du modal */
-.modal{
-    display: none; /* Masqué par défaut */
+.cookie-consent {
+    z-index: 99;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay semi-transparent */
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content{
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
     width: 90%;
-    max-width: 300px; /* Pour limiter la taille en mobile */
+    max-width: 100%;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+  }
+  
+  /* Style du bouton cookie */
+  .cookie-button {
+    transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transform: scale(0) rotate(-200deg);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-color: #ddaa65;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCA2MCI+PGRlZnM+PHN0eWxlPi5ie2ZpbGw6Izg0M308L3N0eWxlPjwvZGVmcz48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iI2RkYWE2NSIgR29vZ2w9InRydWUiLz48Y2lyY2xlIGNsYXNzPSJiIiBjeD0iMTUuNSIgY3k9IjIxLjUiIHI9IjMuNSIvPjxjaXJjbGUgY2xhc3M9ImIiIGN4PSIzNC41IiBjeT0iMTIuNSIgcj0iMy41Ii8+PGNpcmNsZSBjbGFzcz0iYiIgY3g9IjIwLjUiIGN5PSI0NS41IiByPSIzLjUiLz48Y2lyY2xlIGNsYXNzPSJiIiBjeD0iMzcuNSIgY3k9IjUzLjUiIHI9IjMuNSIvPjxjaXJjbGUgY2xhc3M9ImIiIGN4PSI0OC41IiBjeT0iMzguNSIgcj0iMy41Ii8+PGNpcmNsZSBjbGFzcz0iYiIgY3g9IjM0IiBjeT0iMzMiIHI9IjYiLz48L3N2Zz4=");
+    border-radius: 50%;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    height: 50px;
+    width: 50px;
+  }
+  
+  /* Style de la popup */
+  .cookie-popin {
+    z-index: 99;
+    position: relative;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    background: #fff;
+    padding: 0.875rem 1.25rem;
+    transform: scale(0);
+    transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  
+  /* Style du titre */
+  .cookie-popin .title {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Style de la description */
+  .cookie-popin .description {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: #999;
+    line-height: 1.4;
+  }
+  
+  .cookie-popin .description a {
+    color: #52bab3;
+  }
+  
+  /* Style des boutons de choix */
+  .cookie-popin .user-choice {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cookie-popin .auth-button {
+    user-select: none;
     text-align: center;
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
-  }
-  
-  button{
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    text-transform: uppercase;
+    background-color: #292e49;
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.2rem;
+    display: inline-block;
     cursor: pointer;
+    box-shadow: 0 0.18rem 0.3rem 0.05rem rgba(0, 0, 0, 0.2);
+    font-size: 0.7rem;
+    width: 100%;
+    max-width: 200px;
   }
   
-  #acceptCookies{
-    background-color: #4CAF50; /* Bouton accepter en vert */
-    color: white;
+  .cookie-popin .auth-button-light {
+    background-color: #fff;
+    color: #292e49;
   }
   
- 
+  .cookie-consent.-deploy .cookie-button {
+    transform: scale(1) rotate(0);
+  }
+  
+  .cookie-consent.-deploy .cookie-popin {
+    transform: scale(1);
+  }
+
+
+
 
 @media (min-width: 768px){
 
@@ -1303,15 +1362,22 @@ table{
         font-size: 20px;
     }
 
-    .modal-content{
-        max-width: 500px; 
-        padding: 30px;
-      }
-    
-      button{
-        padding: 12px 25px; 
-        font-size: 16px;
-      }
+    .cookie-consent {
+    max-width: 32rem;
+    left: 20rem;
+    padding-left: 5em;
+  }
+
+
+  .cookie-popin .title {
+    font-size: 1.5rem;
+  }
+
+  .cookie-popin .description {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
 
 
 }
